@@ -1,0 +1,28 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Maszyna lokalna": [
+      "out\\build\\x64-debug",
+      "out\\install\\x64-debug",
+      "out\\build\\x64-release",
+      "out\\install\\x64-release",
+      "out\\build\\x86-debug",
+      "out\\install\\x86-debug",
+      "out\\build\\x86-release",
+      "out\\install\\x86-release"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\include",
+    "\\include\\Config",
+    "\\include\\Log",
+    "\\src",
+    "\\src\\private",
+    "\\src\\private\\Config",
+    "\\src\\private\\Loader",
+    "\\src\\private\\Log",
+    "\\src\\private\\Settings"
+  ],
+  "SelectedNode": "\\README.md",
+  "PreviewInSolutionExplorer": false
+}

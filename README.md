@@ -1,0 +1,1 @@
+Simple Neural Network for recognizing patterns
