@@ -4,6 +4,8 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 {
 	std::shared_ptr<NeuralDataFile> neuralDataFile = NeuralDataFile::CreateInstanceOfNeuralDataFile(config->GetNeuralType());
 
+	
+
 	LoadPathType pathType = config->GetLoadPathType();
 	if (pathType == LoadPathType::Multiple_Labels_Images) 
 	{

@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_NeuralNetwork_DigitRecognition: phony ||
 
 build CMakeFiles\NeuralNetwork_DigitRecognition.dir\src\private\main\main.cpp.obj: CXX_COMPILER__NeuralNetwork_DigitRecognition_unscanned_Debug D$:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\src\private\main\main.cpp || cmake_object_order_depends_target_NeuralNetwork_DigitRecognition
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\include
+  INCLUDES = -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\include -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\lib\include\mnist
   OBJECT_DIR = CMakeFiles\NeuralNetwork_DigitRecognition.dir
   OBJECT_FILE_DIR = CMakeFiles\NeuralNetwork_DigitRecognition.dir\src\private\main
   TARGET_COMPILE_PDB = CMakeFiles\NeuralNetwork_DigitRecognition.dir\

@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <cassert>
+#include "../lib/MNISTReader/include/mnist/mnist_reader_less.hpp"
 
 class FileLoader 
 {

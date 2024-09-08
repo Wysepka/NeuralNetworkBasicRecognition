@@ -26,4 +26,4 @@ add_subdirectory(lib)
 add_executable(NeuralNetwork_DigitRecognition src/private/main/main.cpp "include/Initializer/Initializer.h" "include/Config/FileLoadConfig.h" "include/Data/NeuralDataFile.h" "include/Loader/FileLoader.h" "include/Settings/FileLoadSettings.h" "include/Config/ProjectConfig.h" "include/Log/Logger.h")
 
 # Link the sources and libraries to the main executable
-target_link_libraries(NeuralNetwork_DigitRecognition PRIVATE NeuralNetwork_Sources NeuralNetwork_Headers ${LIBS})
+target_link_libraries(NeuralNetwork_DigitRecognition PRIVATE NeuralNetwork_Sources NeuralNetwork_Headers ${LIBS} MNISTReader)

@@ -13,16 +13,16 @@
   },
   "ExpandedNodes": [
     "",
-    "\\include",
-    "\\include\\Config",
-    "\\include\\Log",
-    "\\src",
+    "\\lib",
+    "\\lib\\MNISTReader",
+    "\\lib\\MNISTReader\\include",
+    "\\lib\\MNISTReader\\include\\mnist",
     "\\src\\private",
     "\\src\\private\\Config",
     "\\src\\private\\Loader",
     "\\src\\private\\Log",
     "\\src\\private\\Settings"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\lib\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

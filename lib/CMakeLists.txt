@@ -15,3 +15,16 @@
 # If needed, link libraries to other targets
 
 #target_link_libraries(NeuralNetwork_Sources PRIVATE ${LIBS})
+
+# CMakeLists.txt in the lib directory
+
+# Specify the minimum version of CMake
+cmake_minimum_required(VERSION 3.10)
+
+# Optionally, you can still declare an interface library if needed
+add_library(MNISTReader INTERFACE)
+
+# Specify the directory where the .hpp files are located
+target_include_directories(MNISTReader INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/mnist   # Assuming .hpp files are in the include folder
+)
