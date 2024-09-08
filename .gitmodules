@@ -1,0 +1,3 @@
+[submodule "lib/MNISTReader"]
+	path = lib/MNISTReader
+	url = https://github.com/wichtounet/mnist.git
