@@ -1,9 +1,11 @@
 #pragma once
-#include "Initializer/Initializer.h"
+#include "Engine/Engine.h"
 
 int main() {
-	Initializer initializer;
+	Engine initializer;
 	initializer.Initialize();
+	initializer.ProcessMainLoop();
+	initializer.Dispose();
 
 	return 0;
 }

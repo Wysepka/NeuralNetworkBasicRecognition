@@ -8,9 +8,11 @@ set(OLD_GLOB
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/FileLoadConfig.h"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/ProjectConfig.h"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Data/NeuralDataFile.h"
-  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Initializer/Initializer.h"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Engine/Engine.h"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Loader/FileLoader.h"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Log/Logger.h"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/RenderingSystem.h"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/TextureLoader.h"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Settings/FileLoadSettings.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
@@ -23,9 +25,11 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Projekty/NeuralNetwork/Neu
 set(OLD_GLOB
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Config/ProjectConfig.cpp"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Data/NeuralDataFile.cpp"
-  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Initializer/Initializer.cpp"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Engine/Engine.cpp"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Loader/FileLoader.cpp"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Log/Logger.cpp"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Rendering/RenderingSystem.cpp"
+  "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Rendering/TextureLoader.cpp"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/Settings/FileLoadSettings.cpp"
   "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/src/private/main/main.cpp"
   )

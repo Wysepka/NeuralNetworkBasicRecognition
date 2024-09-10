@@ -23,7 +23,9 @@ add_subdirectory(src)
 add_subdirectory(lib)
 
 # Add the executable
-add_executable(NeuralNetwork_DigitRecognition src/private/main/main.cpp "include/Initializer/Initializer.h" "include/Config/FileLoadConfig.h" "include/Data/NeuralDataFile.h" "include/Loader/FileLoader.h" "include/Settings/FileLoadSettings.h" "include/Config/ProjectConfig.h" "include/Log/Logger.h")
+add_executable(NeuralNetwork_DigitRecognition src/private/main/main.cpp "include/Engine/Engine.h" "include/Config/FileLoadConfig.h" "include/Data/NeuralDataFile.h" "include/Loader/FileLoader.h" "include/Settings/FileLoadSettings.h" "include/Config/ProjectConfig.h" "include/Log/Logger.h" "include/Rendering/RenderingSystem.h" "include/Rendering/TextureLoader.h")
+
+find_package(OpenGL REQUIRED)
 
 # Link the sources and libraries to the main executable
-target_link_libraries(NeuralNetwork_DigitRecognition PRIVATE NeuralNetwork_Sources NeuralNetwork_Headers ${LIBS} MNISTReader)
+target_link_libraries(NeuralNetwork_DigitRecognition PRIVATE NeuralNetwork_Sources NeuralNetwork_Headers ${LIBS} MNISTReader glfw glad glm imgui ${LIBRARIES} OpenGL::GL)

@@ -14,7 +14,7 @@ void Logger::LogDataFile(const std::shared_ptr<const NeuralDataFile> dataFile)
 			{
 				std::cout << '\n';
 			}
-			std::cout << pixels[j];
+			std::cout << static_cast<char>(pixels[j]);
 		}
 		std::cout << '\n';
 	}

@@ -32,3 +32,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/cmake_install.cmake")
+  include("D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glm/cmake_install.cmake")
+
+endif()
+

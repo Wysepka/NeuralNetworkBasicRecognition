@@ -4,8 +4,6 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 {
 	std::shared_ptr<NeuralDataFile> neuralDataFile = NeuralDataFile::CreateInstanceOfNeuralDataFile(config->GetNeuralType());
 
-	
-
 	LoadPathType pathType = config->GetLoadPathType();
 	if (pathType == LoadPathType::Multiple_Labels_Images) 
 	{
@@ -13,11 +11,14 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 		std::string images_path = paths[0];
 		std::string labels_path = paths[1];
 
-		int number_of_test_images, test_rows, test_cols;
-		std::vector<std::vector<uint8_t>> test_images = ReadImages(images_path, number_of_test_images, test_rows, test_cols);
-		std::vector<uint8_t> test_labels = ReadLabels(labels_path);
+		auto dataImages = mnist::read_mnist_image_file(images_path);
+		auto dataLabels = mnist::read_mnist_label_file(labels_path);
 
-		if (test_images.size() != test_labels.size()) {
+		//int number_of_test_images, test_rows, test_cols;
+		//std::vector<std::vector<uint8_t>> test_images = ReadImages(images_path, number_of_test_images, test_rows, test_cols);
+		//std::vector<uint8_t> test_labels = ReadLabels(labels_path);
+
+		if (dataImages.size() != dataLabels.size()) {
 			std::ostringstream error;
 			error << "Images size vector length is different, than Images Labels ! For Files Dir [0]: " <<
 				images_path << " ||| [1]: " << labels_path << "\n";
@@ -25,13 +26,13 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 			return neuralDataFile;
 		}
 
-		neuralDataFile->Initialize(test_images.size());
+		neuralDataFile->Initialize(dataImages.size());
 
-		for (size_t i = 0; i < test_images.size(); i++)
+		for (size_t i = 0; i < dataImages.size(); i++)
 		{
 			std::shared_ptr<NeuralDataObject> dataObject = std::make_shared<NeuralDataObject>();
-			dataObject->SetFlatObjectsPixelsArray(std::make_shared<std::vector<uint8_t>>(test_images[i]));
-			dataObject->SetLabel(test_labels[i]);
+			dataObject->SetFlatObjectsPixelsArray(std::make_shared<std::vector<uint8_t>>(dataImages[i]));
+			dataObject->SetLabel(dataLabels[i]);
 			dataObject->SetDimensions(NeuralDataFile_MNIST_Digits::X_DIMENSION, NeuralDataFile_MNIST_Digits::Y_DIMENSION);
 			neuralDataFile->AddDataObject(dataObject);
 		}

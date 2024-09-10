@@ -37,9 +37,11 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/FileLoadConfig.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/ProjectConfig.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Data/NeuralDataFile.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Initializer/Initializer.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Engine/Engine.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Loader/FileLoader.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Log/Logger.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/RenderingSystem.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/TextureLoader.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Settings/FileLoadSettings.h"
     )
 endif()

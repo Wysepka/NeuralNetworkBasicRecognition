@@ -13,16 +13,17 @@
   },
   "ExpandedNodes": [
     "",
+    "\\include",
+    "\\include\\Engine",
+    "\\include\\Rendering",
     "\\lib",
-    "\\lib\\MNISTReader",
-    "\\lib\\MNISTReader\\include",
-    "\\lib\\MNISTReader\\include\\mnist",
+    "\\lib\\glad",
+    "\\lib\\glad\\src",
+    "\\src",
     "\\src\\private",
-    "\\src\\private\\Config",
-    "\\src\\private\\Loader",
-    "\\src\\private\\Log",
-    "\\src\\private\\Settings"
+    "\\src\\private\\Engine",
+    "\\src\\private\\Rendering"
   ],
-  "SelectedNode": "\\lib\\CMakeLists.txt",
+  "SelectedNode": "\\src\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
