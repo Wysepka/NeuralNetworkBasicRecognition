@@ -5,10 +5,11 @@
 
 void Engine::Initialize() 
 {
-	fileLoader = std::make_shared<FileLoader>();
+	messageBus = std::make_shared<MessageBus>();
+	fileLoader = std::make_shared<FileLoader>(messageBus);
 	logger = std::make_shared<Logger>();
 
-	renderingSystem = std::make_shared<RenderingSystem>(true, true, nullptr);
+	renderingSystem = std::make_shared<RenderingSystem>(true, true, nullptr , messageBus);
 	renderingSystem->Initialize();
 	auto loadConfigs = ProjectConfig::LoadTypesQueue;
 	for (size_t i = 0; i < loadConfigs.size(); i++)

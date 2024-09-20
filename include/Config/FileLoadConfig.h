@@ -10,6 +10,13 @@ enum LoadPathType : uint8_t
 	Multiple_Labels_Images = 2,
 };
 
+enum LoadProcessType : uint8_t 
+{
+	InvalidProcess = 0,
+	ConcurrentProcess = 1,
+	ParallelProcess = 2,
+};
+
 struct FileLoadConfig {
 public:
 	virtual const std::string FileDirectoryPath() = 0;
@@ -21,6 +28,10 @@ public:
 	virtual LoadPathType GetLoadPathType() 
 	{
 		return LoadPathType::InvalidLoadPath;
+	}
+	virtual LoadProcessType GetLoadProcessType()
+	{
+		return LoadProcessType::InvalidProcess;
 	}
 };
 
@@ -58,5 +69,10 @@ public:
 	virtual const NeuralDataObject_Type GetNeuralType() override 
 	{
 		return NeuralDataObject_Type::MNIST_Digit;
+	}
+
+	virtual LoadProcessType GetLoadProcessType() override
+	{
+		return LoadProcessType::ParallelProcess;
 	}
 };

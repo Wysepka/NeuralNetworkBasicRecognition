@@ -14,16 +14,16 @@
   "ExpandedNodes": [
     "",
     "\\include",
-    "\\include\\Engine",
-    "\\include\\Rendering",
+    "\\include\\Event",
     "\\lib",
     "\\lib\\glad",
     "\\lib\\glad\\src",
     "\\src",
     "\\src\\private",
     "\\src\\private\\Engine",
+    "\\src\\private\\Event",
     "\\src\\private\\Rendering"
   ],
-  "SelectedNode": "\\src\\CMakeLists.txt",
+  "SelectedNode": "\\src\\private\\Event\\MessageBus.cpp",
   "PreviewInSolutionExplorer": false
 }

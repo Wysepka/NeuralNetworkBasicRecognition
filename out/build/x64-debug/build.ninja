@@ -226,6 +226,22 @@ build src\CMakeFiles\NeuralNetwork_Sources.dir\private\Engine\Engine.cpp.obj: CX
   TARGET_COMPILE_PDB = src\CMakeFiles\NeuralNetwork_Sources.dir\NeuralNetwork_Sources.pdb
   TARGET_PDB = src\NeuralNetwork_Sources.pdb
 
+build src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event\MessageBus.cpp.obj: CXX_COMPILER__NeuralNetwork_Sources_unscanned_Debug D$:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\src\private\Event\MessageBus.cpp || cmake_object_order_depends_target_NeuralNetwork_Sources
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\include
+  OBJECT_DIR = src\CMakeFiles\NeuralNetwork_Sources.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event
+  TARGET_COMPILE_PDB = src\CMakeFiles\NeuralNetwork_Sources.dir\NeuralNetwork_Sources.pdb
+  TARGET_PDB = src\NeuralNetwork_Sources.pdb
+
+build src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event\Messages.cpp.obj: CXX_COMPILER__NeuralNetwork_Sources_unscanned_Debug D$:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\src\private\Event\Messages.cpp || cmake_object_order_depends_target_NeuralNetwork_Sources
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\include
+  OBJECT_DIR = src\CMakeFiles\NeuralNetwork_Sources.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event
+  TARGET_COMPILE_PDB = src\CMakeFiles\NeuralNetwork_Sources.dir\NeuralNetwork_Sources.pdb
+  TARGET_PDB = src\NeuralNetwork_Sources.pdb
+
 build src\CMakeFiles\NeuralNetwork_Sources.dir\private\Loader\FileLoader.cpp.obj: CXX_COMPILER__NeuralNetwork_Sources_unscanned_Debug D$:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\src\private\Loader\FileLoader.cpp || cmake_object_order_depends_target_NeuralNetwork_Sources
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
   INCLUDES = -ID:\Projekty\NeuralNetwork\NeuralNetwork_DigitRecognition\include
@@ -282,7 +298,7 @@ build src\CMakeFiles\NeuralNetwork_Sources.dir\private\main\main.cpp.obj: CXX_CO
 #############################################
 # Link the static library src\NeuralNetwork_Sources.lib
 
-build src\NeuralNetwork_Sources.lib: CXX_STATIC_LIBRARY_LINKER__NeuralNetwork_Sources_Debug src\CMakeFiles\NeuralNetwork_Sources.dir\private\Config\ProjectConfig.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Data\NeuralDataFile.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Engine\Engine.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Loader\FileLoader.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Log\Logger.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Rendering\RenderingSystem.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Rendering\TextureLoader.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Settings\FileLoadSettings.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\main\main.cpp.obj
+build src\NeuralNetwork_Sources.lib: CXX_STATIC_LIBRARY_LINKER__NeuralNetwork_Sources_Debug src\CMakeFiles\NeuralNetwork_Sources.dir\private\Config\ProjectConfig.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Data\NeuralDataFile.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Engine\Engine.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event\MessageBus.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Event\Messages.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Loader\FileLoader.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Log\Logger.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Rendering\RenderingSystem.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Rendering\TextureLoader.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\Settings\FileLoadSettings.cpp.obj src\CMakeFiles\NeuralNetwork_Sources.dir\private\main\main.cpp.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = src\CMakeFiles\NeuralNetwork_Sources.dir

@@ -6,6 +6,7 @@
 #include "../lib/imgui/imgui.h"
 #include "../lib/imgui/backends/imgui_impl_opengl3.h"
 #include "../lib/imgui/backends/imgui_impl_glfw.h"
+#include "Event/MessageBus.h"
 
 class RenderingSystem
 {
@@ -15,10 +16,11 @@ private:
 	GLFWwindow* window;
 	ImVec4 clear_color;
 	ImGuiIO* io;
+	std::shared_ptr<MessageBus> messageBus;
 
 public:
-	RenderingSystem(bool demoWindow, bool anotherWindow, ImGuiIO* ioRef)
-		: showDemoWindow(demoWindow), showAnotherWindow(anotherWindow), io(ioRef), window(nullptr) {}
+	RenderingSystem(bool demoWindow, bool anotherWindow, ImGuiIO* ioRef , std::shared_ptr<MessageBus> messageBus)
+		: showDemoWindow(demoWindow), showAnotherWindow(anotherWindow), io(ioRef), window(nullptr) , messageBus(messageBus) {}
 
 	int Initialize();
 	void ProcessMainRenderingLoop(bool& shouldBeRendering, int& retFlag);

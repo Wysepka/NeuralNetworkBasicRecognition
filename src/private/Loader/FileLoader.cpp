@@ -7,6 +7,20 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 	LoadPathType pathType = config->GetLoadPathType();
 	if (pathType == LoadPathType::Multiple_Labels_Images) 
 	{
+		LoadProcessType loadProcess = config->GetLoadProcessType();
+		if (loadProcess == LoadProcessType::ParallelProcess) 
+		{
+			std::thread loadThread(&FileLoader::LoadFile_Internal, this, neuralDataFile, config);
+			loadThread.detach();
+			std::cout << "Parallel Loading for MultipleLabels ended";
+			EndLoadingFile endLoadingFile(neuralDataFile);
+			messageBus->Publish<EndLoadingFile>(std::make_shared<EndLoadingFile>(neuralDataFile));
+		}
+		else if (loadProcess == LoadProcessType::ConcurrentProcess) 
+		{
+			LoadFile_Internal(neuralDataFile, config);
+		}
+		/*
 		auto paths = config->FileDirectoryPaths();
 		std::string images_path = paths[0];
 		std::string labels_path = paths[1];
@@ -36,8 +50,42 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 			dataObject->SetDimensions(NeuralDataFile_MNIST_Digits::X_DIMENSION, NeuralDataFile_MNIST_Digits::Y_DIMENSION);
 			neuralDataFile->AddDataObject(dataObject);
 		}
+		*/
 	}
 	return neuralDataFile;
+}
+
+void FileLoader::LoadFile_Internal(std::shared_ptr<NeuralDataFile> dataFile , std::shared_ptr<FileLoadConfig> config)
+{
+	auto paths = config->FileDirectoryPaths();
+	std::string images_path = paths[0];
+	std::string labels_path = paths[1];
+
+	auto dataImages = mnist::read_mnist_image_file(images_path);
+	auto dataLabels = mnist::read_mnist_label_file(labels_path);
+
+	//int number_of_test_images, test_rows, test_cols;
+	//std::vector<std::vector<uint8_t>> test_images = ReadImages(images_path, number_of_test_images, test_rows, test_cols);
+	//std::vector<uint8_t> test_labels = ReadLabels(labels_path);
+
+	if (dataImages.size() != dataLabels.size()) {
+		std::ostringstream error;
+		error << "Images size vector length is different, than Images Labels ! For Files Dir [0]: " <<
+			images_path << " ||| [1]: " << labels_path << "\n";
+		throw std::runtime_error(error.str());
+		//return neuralDataFile;
+	}
+
+	dataFile->Initialize(dataImages.size());
+
+	for (size_t i = 0; i < dataImages.size(); i++)
+	{
+		std::shared_ptr<NeuralDataObject> dataObject = std::make_shared<NeuralDataObject>();
+		dataObject->SetFlatObjectsPixelsArray(std::make_shared<std::vector<uint8_t>>(dataImages[i]));
+		dataObject->SetLabel(dataLabels[i]);
+		dataObject->SetDimensions(NeuralDataFile_MNIST_Digits::X_DIMENSION, NeuralDataFile_MNIST_Digits::Y_DIMENSION);
+		dataFile->AddDataObject(dataObject);
+	}
 }
 
 
