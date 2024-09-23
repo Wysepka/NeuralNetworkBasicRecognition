@@ -6,6 +6,7 @@ GLuint TextureLoader::LoadTexture(std::shared_ptr<NeuralDataObject> neuralDataOb
 	std::vector<uint8_t> flatArrayTextureData;
 	ConvertToArrayTextureData(neuralDataObj->GetFlatObjectPixelsArray(), flatArrayTextureData);
 
+	GLenum error = glGetError();
 	GLuint texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -24,7 +25,7 @@ GLuint TextureLoader::LoadTexture(std::shared_ptr<NeuralDataObject> neuralDataOb
 void TextureLoader::ConvertToArrayTextureData(std::vector<uint8_t> array , std::vector<uint8_t>& flatArrayToPopulate) {
 	for (int y = 0; y < array.size(); ++y) 
 	{
-		uint8_t pixel_value = array[y] * 255;  // Convert 0-1 range to 0-255 for grayscale
+		uint8_t pixel_value = array[y];  // Convert 0-1 range to 0-255 for grayscale
 		flatArrayToPopulate.push_back(pixel_value);
 		flatArrayToPopulate.push_back(pixel_value);
 		flatArrayToPopulate.push_back(pixel_value);

@@ -5,11 +5,25 @@ void RenderingSystem::glfw_error_callback(int error, const char* description)
 	fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
-int RenderingSystem::Initialize() 
+void RenderingSystem::OnFileLoadEnded(const std::shared_ptr<EndLoadingFile>& message)
+{
+	currentTextureIndex = 0;
+	auto dataObjects = message->neuralDataFile->GetNeuralDataObjects();
+	for (size_t i = 0; i < dataObjects.size(); i++)
+	{
+		textureWidth = dataObjects[i]->GetXDim();
+		textureHeight = dataObjects[i]->GetYDim();
+		textures.push_back(textureLoader->LoadTexture(dataObjects[i]));
+	}
+}
+
+int RenderingSystem::Initialize()
 {
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
+
+
 
 	// Decide GL+GLSL versions
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -56,6 +70,11 @@ int RenderingSystem::Initialize()
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+		std::cerr << "Failed to initialize GLAD" << std::endl;
+		return 1;
+	}
+
 	// Load Fonts
 	// - If no fonts are loaded, dear imgui will use the default font. You can also load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
 	// - AddFontFromFileTTF() will return the ImFont* so you can store it if you need to select the font among multiple.
@@ -74,6 +93,10 @@ int RenderingSystem::Initialize()
 	//IM_ASSERT(font != nullptr);
 
 	clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+	textureLoader = std::make_shared<TextureLoader>();
+	
+	messageBus->Subscribe<EndLoadingFile>([&](const std::shared_ptr<EndLoadingFile>& message) { OnFileLoadEnded(message); });
 
 	return 0;
 }
@@ -153,6 +176,8 @@ void RenderingSystem::ProcessMainRenderingLoop(bool& shouldBeRendering, int& ret
 		ImGui::End();
 	}
 
+	DisplayLoadedTextureData();
+
 	// Rendering
 	ImGui::Render();
 	int display_w, display_h;
@@ -163,4 +188,42 @@ void RenderingSystem::ProcessMainRenderingLoop(bool& shouldBeRendering, int& ret
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	glfwSwapBuffers(window);
+}
+
+void RenderingSystem::DisplayLoadedTextureData()
+{
+	if (textures.empty())
+	{
+		return;
+	}
+
+	ImGui::Begin("Loaded Texture Datas");   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+	ImGui::Image((void*)(intptr_t)textures[currentTextureIndex], ImVec2(textureWidth * 5.f, textureHeight * 5.f));
+
+	if (ImGui::Button("Previous 5") && currentTextureIndex - 5 > 0) 
+	{
+		currentTextureIndex -= 5;
+	}
+	ImGui::SameLine();
+	// Buttons for switching between textures
+	if (ImGui::Button("Previous") && currentTextureIndex > 0)
+	{
+		currentTextureIndex--;
+	}
+
+	ImGui::SameLine();
+	ImGui::Text("Index: %d", currentTextureIndex);
+
+	ImGui::SameLine(); // Place the next button on the same line
+	if (ImGui::Button("Next") && currentTextureIndex < textures.size() - 1)
+	{
+		currentTextureIndex++;
+	}
+	ImGui::SameLine();
+	if (ImGui::Button("Next 5") && currentTextureIndex + 5 < textures.size() -1)
+	{
+		currentTextureIndex += 5;
+	}
+
+	ImGui::End();
 }

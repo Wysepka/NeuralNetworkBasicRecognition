@@ -39,7 +39,7 @@ int NeuralDataObject::GetYDim()
 
 std::vector<uint8_t> NeuralDataObject::GetFlatObjectPixelsArray()
 {
-	return (*flatObjectPixelsArray);
+	return *flatObjectPixelsArray;
 }
 
 

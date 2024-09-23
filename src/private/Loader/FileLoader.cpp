@@ -11,7 +11,7 @@ std::shared_ptr<NeuralDataFile> FileLoader::LoadFile(std::shared_ptr<FileLoadCon
 		if (loadProcess == LoadProcessType::ParallelProcess) 
 		{
 			std::thread loadThread(&FileLoader::LoadFile_Internal, this, neuralDataFile, config);
-			loadThread.detach();
+			loadThread.join();
 			std::cout << "Parallel Loading for MultipleLabels ended";
 			EndLoadingFile endLoadingFile(neuralDataFile);
 			messageBus->Publish<EndLoadingFile>(std::make_shared<EndLoadingFile>(neuralDataFile));

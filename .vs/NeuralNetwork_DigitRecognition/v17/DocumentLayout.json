@@ -3,28 +3,62 @@
   "WorkspaceRootPath": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\MessageBus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Event\\MessageBus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\RenderingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Rendering\\RenderingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\RenderingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Rendering\\RenderingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Rendering\\TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Rendering\\TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Loader\\FileLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Loader\\FileLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\MessageBus.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Event\\MessageBus.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\glad\\include\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lib\\glad\\include\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Loader\\FileLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Loader\\FileLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\Messages.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Event\\Messages.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Data\\NeuralDataFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Data\\NeuralDataFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\memory||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\MessageBus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Event\\MessageBus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\MessageBus.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Event\\MessageBus.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\Messages.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Event\\Messages.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\Messages.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Event\\Messages.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Config\\ProjectConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -35,23 +69,11 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Config\\ProjectConfig.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\RenderingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Rendering\\RenderingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Rendering\\TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\thread||{3B902123-F8A7-4915-9F01-361F908088D0}|"
@@ -65,26 +87,11 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Data\\NeuralDataFile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Rendering\\TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\main\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\main\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\RenderingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Rendering\\RenderingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xutility||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\memory||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\glad\\include\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lib\\glad\\include\\glad\\glad.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -170,13 +177,6 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\array||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Data\\NeuralDataFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\private\\Data\\NeuralDataFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Log\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\Log\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -195,11 +195,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 30,
+          "SelectedChildIndex": 24,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\main\\main.cpp",
               "RelativeDocumentMoniker": "src\\private\\main\\main.cpp",
@@ -208,12 +208,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-01T19:17:23.181Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\CMakeLists.txt",
               "RelativeDocumentMoniker": "CMakeLists.txt",
@@ -222,12 +221,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-01T19:20:36.061Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\CMakeLists.txt",
               "RelativeDocumentMoniker": "src\\CMakeLists.txt",
@@ -236,12 +234,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-01T19:17:44.217Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\CMakeLists.txt",
               "RelativeDocumentMoniker": "include\\CMakeLists.txt",
@@ -250,12 +247,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-01T19:17:55.538Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "Engine.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Engine\\Engine.h",
               "RelativeDocumentMoniker": "include\\Engine\\Engine.h",
@@ -264,18 +260,17 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-01T19:34:23.7Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Engine.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Engine\\Engine.cpp",
               "RelativeDocumentMoniker": "src\\private\\Engine\\Engine.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Engine\\Engine.cpp",
               "RelativeToolTip": "src\\private\\Engine\\Engine.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-01T19:34:13.174Z",
               "IsPinned": true,
@@ -283,7 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "FileLoadConfig.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Config\\FileLoadConfig.h",
               "RelativeDocumentMoniker": "include\\Config\\FileLoadConfig.h",
@@ -292,12 +287,11 @@
               "ViewState": "AQIAAAoAAAAAAAAAAAAiwB8AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-01T19:39:31.874Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "FileLoader.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Loader\\FileLoader.h",
               "RelativeDocumentMoniker": "include\\Loader\\FileLoader.h",
@@ -311,13 +305,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "FileLoader.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Loader\\FileLoader.cpp",
               "RelativeDocumentMoniker": "src\\private\\Loader\\FileLoader.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Loader\\FileLoader.cpp",
               "RelativeToolTip": "src\\private\\Loader\\FileLoader.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAvwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-01T19:52:48.354Z",
               "IsPinned": true,
@@ -325,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "NeuralDataFile.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Data\\NeuralDataFile.h",
               "RelativeDocumentMoniker": "include\\Data\\NeuralDataFile.h",
@@ -334,26 +328,24 @@
               "ViewState": "AQIAACIAAAAAAAAAAAAqwDcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-01T19:41:29.515Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 9,
               "Title": "NeuralDataFile.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Data\\NeuralDataFile.cpp",
               "RelativeDocumentMoniker": "src\\private\\Data\\NeuralDataFile.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Data\\NeuralDataFile.cpp",
               "RelativeToolTip": "src\\private\\Data\\NeuralDataFile.cpp",
-              "ViewState": "AQIAAEIAAAAAAAAAAAASwFIAAAAbAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAADgvycAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-01T20:09:05.334Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "FileLoadSettings.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Settings\\FileLoadSettings.h",
               "RelativeDocumentMoniker": "include\\Settings\\FileLoadSettings.h",
@@ -362,8 +354,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-01T19:50:35.317Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -376,12 +367,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-01T19:52:09.183Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "ProjectConfig.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Config\\ProjectConfig.h",
               "RelativeDocumentMoniker": "include\\Config\\ProjectConfig.h",
@@ -390,12 +380,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-07T20:49:36.807Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "ProjectConfig.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Config\\ProjectConfig.cpp",
               "RelativeDocumentMoniker": "src\\private\\Config\\ProjectConfig.cpp",
@@ -404,8 +393,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAB2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-07T22:25:04.183Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -418,12 +406,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-07T21:46:14.175Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "Logger.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Log\\Logger.cpp",
               "RelativeDocumentMoniker": "src\\private\\Log\\Logger.cpp",
@@ -432,12 +419,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-07T21:46:24.535Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "README.md",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\README.md",
               "RelativeDocumentMoniker": "README.md",
@@ -446,12 +432,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2024-09-08T00:06:25.385Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "mnist_reader_less.hpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\MNISTReader\\include\\mnist\\mnist_reader_less.hpp",
               "RelativeDocumentMoniker": "lib\\MNISTReader\\include\\mnist\\mnist_reader_less.hpp",
@@ -460,12 +445,11 @@
               "ViewState": "AQIAACUAAAAAAAAAAADgvzAAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-08T17:26:15.941Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "mnist_reader_common.hpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\MNISTReader\\include\\mnist\\mnist_reader_common.hpp",
               "RelativeDocumentMoniker": "lib\\MNISTReader\\include\\mnist\\mnist_reader_common.hpp",
@@ -479,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\CMakeLists.txt",
               "RelativeDocumentMoniker": "lib\\CMakeLists.txt",
@@ -488,12 +472,11 @@
               "ViewState": "AQIAABUAAAAAAAAAAAAAAA8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-01T19:18:37.583Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\examples\\example_glfw_opengl3\\main.cpp",
               "RelativeDocumentMoniker": "lib\\imgui\\examples\\example_glfw_opengl3\\main.cpp",
@@ -502,12 +485,11 @@
               "ViewState": "AQIAAFQAAAAAAAAAAAAAAIMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-08T18:40:57.835Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "imgui_demo.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\imgui_demo.cpp",
               "RelativeDocumentMoniker": "lib\\imgui\\imgui_demo.cpp",
@@ -516,18 +498,17 @@
               "ViewState": "AQIAAGoBAAAAAAAAAADgv3oBAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-08T18:47:38.388Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "RenderingSystem.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\RenderingSystem.h",
               "RelativeDocumentMoniker": "include\\Rendering\\RenderingSystem.h",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\RenderingSystem.h",
               "RelativeToolTip": "include\\Rendering\\RenderingSystem.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-09T17:35:50.125Z",
               "IsPinned": true,
@@ -535,13 +516,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 0,
               "Title": "RenderingSystem.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\RenderingSystem.cpp",
               "RelativeDocumentMoniker": "src\\private\\Rendering\\RenderingSystem.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\RenderingSystem.cpp",
               "RelativeToolTip": "src\\private\\Rendering\\RenderingSystem.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAIsAAABbAAAA",
+              "ViewState": "AQIAALcAAAAAAAAAAAAAAMAAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-09T17:35:59.964Z",
               "IsPinned": true,
@@ -549,13 +530,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "TextureLoader.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\TextureLoader.h",
               "RelativeDocumentMoniker": "include\\Rendering\\TextureLoader.h",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Rendering\\TextureLoader.h",
               "RelativeToolTip": "include\\Rendering\\TextureLoader.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-10T17:57:19.397Z",
               "IsPinned": true,
@@ -563,13 +544,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "TextureLoader.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\TextureLoader.cpp",
               "RelativeDocumentMoniker": "src\\private\\Rendering\\TextureLoader.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Rendering\\TextureLoader.cpp",
               "RelativeToolTip": "src\\private\\Rendering\\TextureLoader.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-10T17:57:09.469Z",
               "IsPinned": true,
@@ -577,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "Messages.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\Messages.h",
               "RelativeDocumentMoniker": "include\\Event\\Messages.h",
@@ -586,12 +567,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-20T11:50:45.223Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Messages.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\Messages.cpp",
               "RelativeDocumentMoniker": "src\\private\\Event\\Messages.cpp",
@@ -600,12 +580,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-20T11:50:55.938Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "MessageBus.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\include\\Event\\MessageBus.h",
               "RelativeDocumentMoniker": "include\\Event\\MessageBus.h",
@@ -614,59 +593,54 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-20T11:52:27.18Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "MessageBus.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\MessageBus.cpp",
               "RelativeDocumentMoniker": "src\\private\\Event\\MessageBus.cpp",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\src\\private\\Event\\MessageBus.cpp",
               "RelativeToolTip": "src\\private\\Event\\MessageBus.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA/AAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAvwCQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-20T11:52:36.633Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "thread",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\thread",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\thread",
               "ViewState": "AQIAAFEAAAAAAAAAAAAhwGEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-20T11:34:49.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T11:34:49.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "xutility",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xutility",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xutility",
               "ViewState": "AQIAAHIBAAAAAAAAAAAiwIMBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-10T19:02:38.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T19:02:38.745Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 10,
               "Title": "memory",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\memory",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\memory",
-              "ViewState": "AQIAANEMAAAAAAAAAAAiwOIMAAAAAAAA",
+              "ViewState": "AQIAAMoGAAAAAAAAAAAvwNoGAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-10T18:53:44.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T18:53:44.041Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "imconfig.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\imconfig.h",
               "RelativeDocumentMoniker": "lib\\imgui\\imconfig.h",
@@ -674,25 +648,24 @@
               "RelativeToolTip": "lib\\imgui\\imconfig.h",
               "ViewState": "AQIAAIcAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-09T20:21:59.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-09T20:21:59.321Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 6,
               "Title": "glad.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\glad\\include\\glad\\glad.h",
               "RelativeDocumentMoniker": "lib\\glad\\include\\glad\\glad.h",
               "ToolTip": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\glad\\include\\glad\\glad.h",
               "RelativeToolTip": "lib\\glad\\include\\glad\\glad.h",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAiwFgAAAACAAAA",
+              "ViewState": "AQIAAJAGAAAAAAAAAAAvwKIGAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-09T18:27:22.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\examples\\example_sdl3_opengl3\\main.cpp",
               "RelativeDocumentMoniker": "lib\\imgui\\examples\\example_sdl3_opengl3\\main.cpp",
@@ -700,12 +673,11 @@
               "RelativeToolTip": "lib\\imgui\\examples\\example_sdl3_opengl3\\main.cpp",
               "ViewState": "AQIAALQAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-08T18:40:36.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:40:36.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "imgui_impl_opengl3.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\backends\\imgui_impl_opengl3.h",
               "RelativeDocumentMoniker": "lib\\imgui\\backends\\imgui_impl_opengl3.h",
@@ -713,12 +685,11 @@
               "RelativeToolTip": "lib\\imgui\\backends\\imgui_impl_opengl3.h",
               "ViewState": "AQIAAAsAAAAAAAAAAAAiwBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-08T18:39:57.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:39:57.171Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "imgui_impl_glfw.h",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\backends\\imgui_impl_glfw.h",
               "RelativeDocumentMoniker": "lib\\imgui\\backends\\imgui_impl_glfw.h",
@@ -726,12 +697,11 @@
               "RelativeToolTip": "lib\\imgui\\backends\\imgui_impl_glfw.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAiwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-08T18:28:16.962Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:28:16.962Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "EXAMPLES.md",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\docs\\EXAMPLES.md",
               "RelativeDocumentMoniker": "lib\\imgui\\docs\\EXAMPLES.md",
@@ -739,12 +709,11 @@
               "RelativeToolTip": "lib\\imgui\\docs\\EXAMPLES.md",
               "ViewState": "AQIAAEYAAAAAAAAAAAAAAFsAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-09-08T18:12:16.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:12:16.804Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "README.md",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\docs\\README.md",
               "RelativeDocumentMoniker": "lib\\imgui\\docs\\README.md",
@@ -752,12 +721,11 @@
               "RelativeToolTip": "lib\\imgui\\docs\\README.md",
               "ViewState": "AQIAAGEAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-09-08T18:12:01.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:12:01.425Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "imgui_impl_glfw.cpp",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\lib\\imgui\\backends\\imgui_impl_glfw.cpp",
               "RelativeDocumentMoniker": "lib\\imgui\\backends\\imgui_impl_glfw.cpp",
@@ -765,12 +733,11 @@
               "RelativeToolTip": "lib\\imgui\\backends\\imgui_impl_glfw.cpp",
               "ViewState": "AQIAAEoAAAAAAAAAAAAiwFwAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-08T18:11:22.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T18:11:22.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": ".gitmodules",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\.gitmodules",
               "RelativeDocumentMoniker": ".gitmodules",
@@ -778,12 +745,11 @@
               "RelativeToolTip": ".gitmodules",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-08T00:48:57.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T00:48:57.998Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Projekty\\NeuralNetwork\\NeuralNetwork_DigitRecognition\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -791,41 +757,38 @@
               "RelativeToolTip": ".gitignore",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-08T00:06:18.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T00:06:18.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "array",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\array",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\array",
               "ViewState": "AQIAACoCAAAAAAAAAAAkwDsCAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-07T23:48:05.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T23:48:05.183Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 1,
               "Title": "vector",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
-              "ViewState": "AQIAAJYCAAAAAAAAAAAjwKYCAAAAAAAA",
+              "ViewState": "AQIAAFAHAAAAAAAAAAAvwGAHAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-09-07T22:28:51.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "xmemory",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
               "ViewState": "AQIAAHADAAAAAAAAAAAqwIIDAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-07T22:19:54.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T22:19:54.936Z"
             },
             {
               "$type": "Document",
@@ -834,8 +797,7 @@
               "DocumentMoniker": "Strony z przegl\u0105dem narz\u0119dzia CMake",
               "ToolTip": "Strony z przegl\u0105dem narz\u0119dzia CMake",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-01T19:08:07.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-01T19:08:07.976Z"
             }
           ]
         }
