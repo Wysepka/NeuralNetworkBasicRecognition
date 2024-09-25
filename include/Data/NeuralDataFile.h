@@ -16,6 +16,7 @@ private:
 	int dimensionY;
 	int label;
 	std::shared_ptr<std::vector<uint8_t>> flatObjectPixelsArray;
+	std::vector<double> flatObjectPixelsArrayNormalized;
 	NeuralDataObject_Type neuralDataObjectType;
 
 public:
@@ -29,6 +30,7 @@ public:
 	int GetXDim();
 	int GetYDim();
 	std::vector<uint8_t> GetFlatObjectPixelsArray();
+	std::vector<double> GetFlatObjectPixelsArray_Normalized();
 };
 
 class NeuralDataObject_MNIST_Digit : NeuralDataObject

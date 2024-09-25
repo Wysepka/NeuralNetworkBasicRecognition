@@ -14,16 +14,15 @@
   "ExpandedNodes": [
     "",
     "\\include",
-    "\\include\\Data",
-    "\\lib",
-    "\\lib\\glad",
-    "\\lib\\glad\\src",
+    "\\include\\Config",
+    "\\include\\Neural",
     "\\src",
     "\\src\\private",
-    "\\src\\private\\Engine",
+    "\\src\\private\\Config",
     "\\src\\private\\Event",
+    "\\src\\private\\Neural",
     "\\src\\private\\Rendering"
   ],
-  "SelectedNode": "\\include",
+  "SelectedNode": "\\include\\Config\\NeuralNetworkConfig.h",
   "PreviewInSolutionExplorer": false
 }

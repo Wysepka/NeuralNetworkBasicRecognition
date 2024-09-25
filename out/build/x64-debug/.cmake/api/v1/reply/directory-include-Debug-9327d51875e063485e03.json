@@ -1,0 +1,62 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"include/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"include/Config/FileLoadConfig.h",
+				"include/Config/NeuralNetworkConfig.h",
+				"include/Config/ProjectConfig.h",
+				"include/Data/NeuralDataFile.h",
+				"include/Engine/Engine.h",
+				"include/Event/MessageBus.h",
+				"include/Event/Messages.h",
+				"include/Loader/FileLoader.h",
+				"include/Log/Logger.h",
+				"include/Neural/Activation.h",
+				"include/Neural/Cost.h",
+				"include/Neural/IActivation.h",
+				"include/Neural/ICost.h",
+				"include/Neural/Layer.h",
+				"include/Neural/LayerBuffer.h",
+				"include/Neural/NeuralNetwork.h",
+				"include/Neural/NeuralTrainer.h",
+				"include/Rendering/RenderingSystem.h",
+				"include/Rendering/TextureLoader.h",
+				"include/Settings/FileLoadSettings.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "include",
+		"source" : "include"
+	}
+}

@@ -1,3 +1,4 @@
+#include "NeuralDataFile.h"
 
 #include "../include/Data/NeuralDataFile.h"
 
@@ -9,6 +10,10 @@ NeuralDataObject_Type NeuralDataObject::GetNeuralDataObject_Type()
 void NeuralDataObject::SetFlatObjectsPixelsArray(std::shared_ptr<std::vector<uint8_t>> flatObjectPixelsArray) 
 {
 	this->flatObjectPixelsArray = flatObjectPixelsArray;
+	for (size_t i = 0; i < flatObjectPixelsArray->size(); i++)
+	{
+		flatObjectPixelsArrayNormalized.push_back((*flatObjectPixelsArray)[i] / 255.f);
+	}
 }
 
 void NeuralDataObject::SetLabel(int label)
@@ -40,6 +45,11 @@ int NeuralDataObject::GetYDim()
 std::vector<uint8_t> NeuralDataObject::GetFlatObjectPixelsArray()
 {
 	return *flatObjectPixelsArray;
+}
+
+std::vector<double> NeuralDataObject::GetFlatObjectPixelsArray_Normalized()
+{
+	return flatObjectPixelsArrayNormalized;
 }
 
 

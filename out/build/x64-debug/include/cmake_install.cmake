@@ -35,6 +35,7 @@ endif()
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/FileLoadConfig.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/NeuralNetworkConfig.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/ProjectConfig.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Data/NeuralDataFile.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Engine/Engine.h"
@@ -42,6 +43,14 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Event/Messages.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Loader/FileLoader.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Log/Logger.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Activation.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Cost.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/IActivation.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/ICost.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Layer.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/LayerBuffer.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/NeuralNetwork.h"
+    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/NeuralTrainer.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/RenderingSystem.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/TextureLoader.h"
     "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Settings/FileLoadSettings.h"

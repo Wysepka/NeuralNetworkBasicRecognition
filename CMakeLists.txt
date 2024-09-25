@@ -23,7 +23,7 @@ add_subdirectory(src)
 add_subdirectory(lib)
 
 # Add the executable
-add_executable(NeuralNetwork_DigitRecognition src/private/main/main.cpp "include/Engine/Engine.h" "include/Config/FileLoadConfig.h" "include/Data/NeuralDataFile.h" "include/Loader/FileLoader.h" "include/Settings/FileLoadSettings.h" "include/Config/ProjectConfig.h" "include/Log/Logger.h" "include/Rendering/RenderingSystem.h" "include/Rendering/TextureLoader.h" "include/Event/Messages.h" "include/Event/MessageBus.h")
+add_executable(NeuralNetwork_DigitRecognition src/private/main/main.cpp "include/Engine/Engine.h" "include/Config/FileLoadConfig.h" "include/Data/NeuralDataFile.h" "include/Loader/FileLoader.h" "include/Settings/FileLoadSettings.h" "include/Config/ProjectConfig.h" "include/Log/Logger.h" "include/Rendering/RenderingSystem.h" "include/Rendering/TextureLoader.h" "include/Event/Messages.h" "include/Event/MessageBus.h" "include/Neural/NeuralNetwork.h" "include/Neural/Layer.h" "include/Neural/LayerBuffer.h" "include/Neural/NeuralTrainer.h" "include/Neural/IActivation.h" "include/Neural/Activation.h" "include/Neural/ICost.h" "include/Neural/Cost.h" "include/Config/NeuralNetworkConfig.h")
 
 find_package(OpenGL REQUIRED)
 
