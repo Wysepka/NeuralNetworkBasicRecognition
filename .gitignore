@@ -14,3 +14,10 @@
 *.sdf
 *.opensdf
 *.VC.opendb
+.idea/
+cmake-build-debug/
+out/build/
+*.obj
+*.exe
+*.pdb
+*.ilk
