@@ -28,6 +28,7 @@ add_subdirectory(glm)
 include_directories(glm)
 include_directories(${CMAKE_SOURCE_DIR}/lib/glfw/include)  # Adds the GLFW include path
 include_directories(${CMAKE_SOURCE_DIR}/lib/imgui)
+include_directories(${CMAKE_SOURCE_DIR}/lib/imgui/backends)
 
 set(GLFW_BUILD_EXAMPLES OFF)
 set(GLFW_BUILD_TESTS OFF)
@@ -44,3 +45,5 @@ target_include_directories(imgui PUBLIC
 target_include_directories(MNISTReader INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/include/mnist   # Assuming .hpp files are in the include folder
 )
+
+message(STATUS "Include directories for imgui: ${CMAKE_SOURCE_DIR}/lib/imgui")

@@ -1,0 +1,16 @@
+.vs/
+.vscode/
+*.ipch
+*.db
+*.VC.db
+*.pdb
+*.suo
+*.cache
+*.ilk
+*.obj
+*.log
+*.tlog
+*.user
+*.sdf
+*.opensdf
+*.VC.opendb

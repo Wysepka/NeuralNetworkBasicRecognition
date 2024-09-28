@@ -1,8 +1,8 @@
-# Install script for directory: D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include
+# Install script for directory: C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/install/x64-debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/install/x64-debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,26 +34,26 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/FileLoadConfig.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/NeuralNetworkConfig.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Config/ProjectConfig.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Data/NeuralDataFile.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Engine/Engine.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Event/MessageBus.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Event/Messages.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Loader/FileLoader.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Log/Logger.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Activation.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Cost.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/IActivation.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/ICost.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/Layer.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/LayerBuffer.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/NeuralNetwork.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Neural/NeuralTrainer.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/RenderingSystem.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Rendering/TextureLoader.h"
-    "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/include/Settings/FileLoadSettings.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Config/FileLoadConfig.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Config/NeuralNetworkConfig.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Config/ProjectConfig.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Data/NeuralDataFile.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Engine/Engine.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Event/MessageBus.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Event/Messages.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Loader/FileLoader.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Log/Logger.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/Activation.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/Cost.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/IActivation.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/ICost.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/Layer.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/LayerBuffer.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/NeuralNetwork.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Neural/NeuralTrainer.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Rendering/RenderingSystem.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Rendering/TextureLoader.h"
+    "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/include/Settings/FileLoadSettings.h"
     )
 endif()
 

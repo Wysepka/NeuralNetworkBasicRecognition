@@ -1,15 +1,22 @@
 #pragma once
 #include <vector>
 
+#include "Core/EnumsContainer.h"
+
 class LayerBuffer
 {
-private:
+public:
 	std::vector<double> valuesOriginal;
 	std::vector<double> valuesGradient;
 	std::vector<double> valuesActivation;
 	std::vector<double> forwardWeights;
 
-	LayerBuffer()
+	int nodesIn; 
+	int nodesOut;
+
+	LayerType layerType;
+
+	LayerBuffer(int nodesIn, int nodesOut , LayerType layerType) : nodesIn(nodesIn) , nodesOut(nodesOut) , layerType(layerType)
 	{
 
 	}

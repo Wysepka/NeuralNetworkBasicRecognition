@@ -1,8 +1,8 @@
-# Install script for directory: D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/lib
+# Install script for directory: C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/install/x64-debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/install/x64-debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/cmake_install.cmake")
-  include("D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glm/cmake_install.cmake")
+  include("C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glfw/cmake_install.cmake")
+  include("C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glm/cmake_install.cmake")
 
 endif()
 

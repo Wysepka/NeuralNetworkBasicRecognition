@@ -1,8 +1,8 @@
-# Install script for directory: D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/lib/glfw/src
+# Install script for directory: C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/lib/glfw/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/install/x64-debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/install/x64-debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,6 +33,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/src/glfw3.lib")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glfw/src/glfw3.lib")
 endif()
 

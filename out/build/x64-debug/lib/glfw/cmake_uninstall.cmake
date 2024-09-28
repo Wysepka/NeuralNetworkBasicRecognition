@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt\"")
+if (NOT EXISTS "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "D:/Projekty/NeuralNetwork/NeuralNetwork_DigitRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt" files)
+file(READ "C:/Dev/Projekty/NeuralNetworkDigitRecognition/NeuralNetworkBasicRecognition/out/build/x64-debug/lib/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

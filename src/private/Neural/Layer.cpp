@@ -2,9 +2,9 @@
 
 void Layer::InitializeRandomWeights(std::mt19937& rng)
 {
-	for (size_t i = 0; i < weights.size(); i++)
+	for (size_t i = 0; i < weightsForward.size(); i++)
 	{
-		weights[i] = RandomInNormalDistribution(rng, 0.0, 1.0) / std::sqrt(values.size());
+		weightsForward[i] = RandomInNormalDistribution(rng, 0.0, 1.0) / std::sqrt(values.size());
 	}
 }
 
@@ -19,15 +19,51 @@ double Layer::RandomInNormalDistribution(std::mt19937& rng, double mean, double 
 	return y1 * standardDeviation + mean;
 }
 
-std::vector<double> Layer::CalculateValues(std::vector<double> inputs)
+double Layer::GetWeight(unsigned int nodeIn, unsigned int nodeOut)
 {
+	int index = nodesIn * nodeOut + nodeIn;
+	return weightsForward[index];
+}
+
+std::vector<double> Layer::CalculateValues(std::vector<double> inputs, std::shared_ptr<LayerBuffer> layerBuffer)
+{
+	std::vector<double> outputs;
 	if (inputs.size() != values.size()) 
 	{
 		throw std::runtime_error("Inputs Size is different than Values size in input Layer !");
-		return;
+		return outputs;
 	}
-	for (size_t i = 0; i < inputs.size(); i++)
+	for (size_t i = 0; i < nodesOut; i++)
 	{
-		values
+		double valueBiased = biases[i];
+		for (size_t j = 0; j < nodesIn; j++)
+		{
+			valueBiased += weightsForward[GetWeight(j, i)];
+		}
+		layerBuffer->valuesOriginal[i] = valueBiased;
+	}
+
+	for (size_t i = 0; i < layerBuffer->valuesOriginal.size(); i++)
+	{
+		layerBuffer->valuesActivation[i] = activation->Activate(layerBuffer->valuesOriginal, i);
+	}
+
+	return outputs;
+}
+
+void Layer::CalculateOutputLayerResults(std::vector<double> expectedResults,
+	std::shared_ptr<LayerBuffer> outputLayerBuffer)
+{
+	for (size_t i = 0; i < outputLayerBuffer->valuesOriginal.size(); i++)
+	{
+
 	}
 }
+
+
+void Layer::SetActivation(std::shared_ptr<IActivation> activation)
+{
+	this->activation = activation;
+}
+
+int Layer::ValuesCount() { return values.size(); }

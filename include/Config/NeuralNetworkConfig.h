@@ -1,6 +1,19 @@
 #pragma once
 #include <vector>
 
+struct NeuralNetworkHiddenConfig
+{
+private:
+	uint16_t nodesCount;
+public:
+	NeuralNetworkHiddenConfig(uint16_t nodesCount) : nodesCount(nodesCount)
+	{
+
+	}
+
+	uint16_t GetNodesCount() { return nodesCount; }
+};
+
 struct NeuralNetworkConfig
 {
 private:
@@ -17,17 +30,4 @@ public:
 	uint16_t GetInputLayer() { return inputLayer; }
 	std::vector<NeuralNetworkHiddenConfig> GetHiddenLayer() { return hiddenLayer; }
 	uint16_t GetOutputLayer() { return outputLayer; }
-};
-
-struct NeuralNetworkHiddenConfig
-{
-private:
-	uint16_t nodesCount;
-public:
-	NeuralNetworkHiddenConfig(uint16_t nodesCount) : nodesCount(nodesCount)
-	{
-
-	}
-
-	uint16_t GetNodesCount() { return nodesCount; }
 };

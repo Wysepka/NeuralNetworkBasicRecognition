@@ -1,6 +1,7 @@
 #pragma once
 #include "memory"
 #include "Data/NeuralDataFile.h"
+#include "Neural/Layer.h"
 
 class Messages
 {
@@ -21,4 +22,12 @@ public:
 	{
 
 	};
+};
+
+struct NeuralNetworkInitialized : Message {
+
+public:
+	std::vector<std::shared_ptr<Layer>> layerVector;
+
+	NeuralNetworkInitialized(std::vector<std::shared_ptr<Layer>> layerVector) : layerVector(layerVector){};
 };

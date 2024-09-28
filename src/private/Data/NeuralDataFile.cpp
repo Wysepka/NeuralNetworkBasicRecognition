@@ -1,4 +1,3 @@
-#include "NeuralDataFile.h"
 
 #include "../include/Data/NeuralDataFile.h"
 
