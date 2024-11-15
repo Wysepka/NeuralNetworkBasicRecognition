@@ -5,6 +5,9 @@ std::unordered_map<std::type_index, std::vector<std::function<void(const std::sh
 template void MessageBus::Subscribe<EndLoadingFile>(const std::function<void(const std::shared_ptr<EndLoadingFile>&)>& callback);
 template void MessageBus::Publish<EndLoadingFile>(const std::shared_ptr<EndLoadingFile>& message);
 
+template void MessageBus::Subscribe<NeuralNetworkInitialized>(const std::function<void(const std::shared_ptr<NeuralNetworkInitialized>&)>& callback);
+template void MessageBus::Publish<NeuralNetworkInitialized>(const std::shared_ptr<NeuralNetworkInitialized>& message);
+
 template<typename T>
 void MessageBus::ValidateMessageType() {
 	static_assert(std::is_base_of<Message, T>::value, "T must be derived from Message");

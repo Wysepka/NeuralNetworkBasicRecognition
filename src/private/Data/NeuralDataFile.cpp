@@ -61,11 +61,11 @@ std::shared_ptr<NeuralDataFile> NeuralDataFile::CreateInstanceOfNeuralDataFile(N
 	std::shared_ptr<NeuralDataFile> dataFile;
 	switch (type)
 	{
-	case Invalid:
+	case NrualDataObject_Invalid:
 		dataFile = std::make_shared<NeuralDataFile>();
 		dataFile->SetAsInvalid();
 		return dataFile;
-	case MNIST_Digit:
+	case NeuralDataObject_MNIST_Digit:
 		return std::make_shared<NeuralDataFile_MNIST_Digits>();
 	default:
 		return std::make_shared<NeuralDataFile>();

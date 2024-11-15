@@ -5,8 +5,8 @@
 
 enum NeuralDataObject_Type : uint8_t
 {
-	Invalid = 0,
-	MNIST_Digit = 1,
+	NrualDataObject_Invalid = 0,
+	NeuralDataObject_MNIST_Digit = 1,
 };
 
 class NeuralDataObject 
@@ -31,6 +31,7 @@ public:
 	int GetYDim();
 	std::vector<uint8_t> GetFlatObjectPixelsArray();
 	std::vector<double> GetFlatObjectPixelsArray_Normalized();
+
 };
 
 class NeuralDataObject_MNIST_Digit : NeuralDataObject

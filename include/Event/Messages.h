@@ -2,6 +2,7 @@
 #include "memory"
 #include "Data/NeuralDataFile.h"
 #include "Neural/Layer.h"
+#include "Neural/NeuralNetworkResult.h"
 
 class Messages
 {
@@ -30,4 +31,11 @@ public:
 	std::vector<std::shared_ptr<Layer>> layerVector;
 
 	NeuralNetworkInitialized(std::vector<std::shared_ptr<Layer>> layerVector) : layerVector(layerVector){};
+};
+
+struct NeuralNetworkIterationMessage : Message
+{
+public:
+	std::shared_ptr<NeuralNetworkResult> neuralNetworkResult;
+	NeuralNetworkIterationMessage(std::shared_ptr<NeuralNetworkResult> neuralNetworkResult) : neuralNetworkResult(neuralNetworkResult){};
 };

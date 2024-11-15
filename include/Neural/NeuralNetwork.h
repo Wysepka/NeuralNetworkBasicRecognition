@@ -6,6 +6,7 @@
 #include "Neural/Layer.h"
 #include "Neural/LayerBuffer.h"
 #include "Data/NeuralDataFile.h"
+#include "Event/MessageBus.h"
 
 class NeuralNetwork
 {
@@ -22,10 +23,12 @@ private:
 	int layersSize;
 
 	std::vector<std::shared_ptr<LayerBuffer>> GetLayerBufferVector();
+
+	void FeedForward(std::vector<double> inputs, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
+	void Backpropagate(std::shared_ptr<NeuralDataObject> dataObject, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
+	void UpdateNetwork();
 public:
 	void SetConfig(NeuralNetworkConfig config);
-	void RunNetwork(NeuralDataFile dataFile);
-	void FeedForward(std::vector<double> inputs);
-	void Backpropagate();
+	void RunNetwork(std::shared_ptr<NeuralDataFile> dataFile);
 };
 

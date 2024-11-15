@@ -1,114 +1,113 @@
 #pragma once
 #include <memory>
 #include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
 #include "IActivation.h"
 
 class Sigmoid : public IActivation {
 public:
-	double Activate(const std::vector<double>& inputs, int index) const override {
-		return 1.0 / (1.0 + std::exp(-inputs[index]));
-	}
+    double Activate(const std::vector<double>& inputs, int index) const override {
+        return 1.0 / (1.0 + std::exp(-inputs[index]));
+    }
 
-	double Derivative(const std::vector<double>& inputs, int index) const override {
-		double a = Activate(inputs, index);
-		return a * (1 - a);
-	}
+    double Derivative(const std::vector<double>& inputs, int index) const override {
+        double a = Activate(inputs, index);
+        return a * (1 - a);
+    }
 
-	ActivationType GetActivationType() const override {
-		return ActivationType::Sigmoid;
-	}
+    ActivationType GetActivationType() const override {
+        return ActivationType::ActivationType_Sigmoid;
+    }
 };
 
 class TanH : public IActivation {
 public:
-	double Activate(const std::vector<double>& inputs, int index) const override {
-		double e2 = std::exp(2 * inputs[index]);
-		return (e2 - 1) / (e2 + 1);
-	}
+    double Activate(const std::vector<double>& inputs, int index) const override {
+        return std::tanh(inputs[index]);
+    }
 
-	double Derivative(const std::vector<double>& inputs, int index) const override {
-		double e2 = std::exp(2 * inputs[index]);
-		double t = (e2 - 1) / (e2 + 1);
-		return 1 - t * t;
-	}
+    double Derivative(const std::vector<double>& inputs, int index) const override {
+        double t = std::tanh(inputs[index]);
+        return 1 - t * t;
+    }
 
-	ActivationType GetActivationType() const override {
-		return ActivationType::TanH;
-	}
+    ActivationType GetActivationType() const override {
+        return ActivationType::ActivationType_TanH;
+    }
 };
 
 class ReLU : public IActivation {
 public:
-	double Activate(const std::vector<double>& inputs, int index) const override {
-		return std::max(0.0, inputs[index]);
-	}
+    double Activate(const std::vector<double>& inputs, int index) const override {
+        return (std::max)(0.0, inputs[index]);
+    }
 
-	double Derivative(const std::vector<double>& inputs, int index) const override {
-		return (inputs[index] > 0) ? 1.0 : 0.0;
-	}
+    double Derivative(const std::vector<double>& inputs, int index) const override {
+        return (inputs[index] > 0) ? 1.0 : 0.0;
+    }
 
-	ActivationType GetActivationType() const override {
-		return ActivationType::ReLU;
-	}
+    ActivationType GetActivationType() const override {
+        return ActivationType::ActivationType_ReLU;
+    }
 };
 
 class SiLU : public IActivation {
 public:
-	double Activate(const std::vector<double>& inputs, int index) const override {
-		return inputs[index] / (1.0 + std::exp(-inputs[index]));
-	}
+    double Activate(const std::vector<double>& inputs, int index) const override {
+        return inputs[index] / (1.0 + std::exp(-inputs[index]));
+    }
 
-	double Derivative(const std::vector<double>& inputs, int index) const override {
-		double sig = 1.0 / (1.0 + std::exp(-inputs[index]));
-		return inputs[index] * sig * (1 - sig) + sig;
-	}
+    double Derivative(const std::vector<double>& inputs, int index) const override {
+        double sig = 1.0 / (1.0 + std::exp(-inputs[index]));
+        return sig * (1 + inputs[index] * (1 - sig));
+    }
 
-	ActivationType GetActivationType() const override {
-		return ActivationType::SiLU;
-	}
+    ActivationType GetActivationType() const override {
+        return ActivationType::ActivationType_SiLU;
+    }
 };
 
 class Softmax : public IActivation {
 public:
-	double Activate(const std::vector<double>& inputs, int index) const override {
-		double expSum = 0;
-		for (double input : inputs) {
-			expSum += std::exp(input);
-		}
-		return std::exp(inputs[index]) / expSum;
-	}
+    double Activate(const std::vector<double>& inputs, int index) const override {
+        // Subtract the max value for numerical stability
+        double maxInput = *std::max_element(inputs.begin(), inputs.end());
+        double expSum = 0.0;
+        for (double input : inputs) {
+            expSum += std::exp(input - maxInput);
+        }
+        return std::exp(inputs[index] - maxInput) / expSum;
+    }
 
-	double Derivative(const std::vector<double>& inputs, int index) const override {
-		double expSum = 0;
-		for (double input : inputs) {
-			expSum += std::exp(input);
-		}
-		double ex = std::exp(inputs[index]);
-		return (ex * expSum - ex * ex) / (expSum * expSum);
-	}
+    double Derivative(const std::vector<double>& inputs, int index) const override {
+        double output = Activate(inputs, index);
+        return output * (1 - output);
+    }
 
-	ActivationType GetActivationType() const override {
-		return ActivationType::Softmax;
-	}
+    ActivationType GetActivationType() const override {
+        return ActivationType::ActivationType_Softmax;
+    }
 };
 
-class Activation
-{
-	static std::unique_ptr<IActivation> GetActivationFromType(ActivationType type) {
-		switch (type) {
-		case ActivationType::Sigmoid:
-			return std::make_unique<class Sigmoid>();
-		case ActivationType::TanH:
-			return std::make_unique<class TanH>();
-		case ActivationType::ReLU:
-			return std::make_unique<class ReLU>();
-		case ActivationType::SiLU:
-			return std::make_unique<class SiLU>();
-		case ActivationType::Softmax:
-			return std::make_unique<class Softmax>();
-		default:
-			std::cout << "Unhandled activation type" << std::endl;
-			return std::make_unique<class Sigmoid>();
-		}
-	}
+class Activation {
+public:
+    static std::unique_ptr<IActivation> GetActivationFromType(ActivationType type) {
+        switch (type) {
+            case ActivationType::ActivationType_Sigmoid:
+                return std::make_unique<Sigmoid>();
+            case ActivationType::ActivationType_TanH:
+                return std::make_unique<TanH>();
+            case ActivationType::ActivationType_ReLU:
+                return std::make_unique<ReLU>();
+            case ActivationType::ActivationType_SiLU:
+                return std::make_unique<SiLU>();
+            case ActivationType::ActivationType_Softmax:
+                return std::make_unique<Softmax>();
+            default:
+                std::cerr << "Unhandled activation type" << std::endl;
+                return nullptr;
+        }
+    }
 };

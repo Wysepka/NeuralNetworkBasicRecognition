@@ -25,7 +25,7 @@ public:
 	virtual const std::vector<std::string> FileDirectoryPaths() = 0;
 	virtual const NeuralDataObject_Type GetNeuralType()
 	{
-		return NeuralDataObject_Type::Invalid;
+		return NeuralDataObject_Type::NrualDataObject_Invalid;
 	}
 	virtual LoadPathType GetLoadPathType() 
 	{
@@ -85,7 +85,7 @@ public:
 
 	virtual const NeuralDataObject_Type GetNeuralType() override 
 	{
-		return NeuralDataObject_Type::MNIST_Digit;
+		return NeuralDataObject_Type::NeuralDataObject_MNIST_Digit;
 	}
 
 	virtual LoadProcessType GetLoadProcessType() override

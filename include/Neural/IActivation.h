@@ -5,12 +5,12 @@
 
 enum ActivationType : uint8_t
 {
-	Invalid = 0,
-	Sigmoid = 1,
-	TanH = 2,
-	ReLU = 3,
-	SiLU = 4,
-	Softmax = 5,
+	ActivationType_Invalid = 0,
+	ActivationType_Sigmoid = 1,
+	ActivationType_TanH = 2,
+	ActivationType_ReLU = 3,
+	ActivationType_SiLU = 4,
+	ActivationType_Softmax = 5,
 };
 
 class IActivation {
