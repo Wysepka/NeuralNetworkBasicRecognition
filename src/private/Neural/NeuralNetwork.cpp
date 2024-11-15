@@ -77,4 +77,9 @@ void NeuralNetwork::FeedForward(std::vector<double> inputs)
 	{
 		inputsToNextLayer = layersCombined[i]->CalculateValues(inputsToNextLayer , layerBuffer[i]);
 	}
+
+	outputLayer->CalculateValues(inputsToNextLayer , layerBuffer[layerBuffer.size() - 1]);
+
+
+	//outputLayer->CalculateValues(inputsToNextLayer , layerBuffer[0]);
 }

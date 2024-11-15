@@ -4,9 +4,9 @@
 #include <random>   // For std::mt19937 and std::uniform_real_distribution
 #include <chrono>
 #include <memory>
-#include <stdexcept>
 #include <Neural/LayerBuffer.h>
 #include "IActivation.h"
+#include "ICost.h"
 
 
 #ifndef M_PI
@@ -28,6 +28,7 @@ private:
 	int nodesOut;
 
 	std::shared_ptr<IActivation> activation;
+	std::shared_ptr<ICost> cost;
 
 	// Function to initialize weights with random values following a normal distribution
 	void InitializeRandomWeights(std::mt19937& rng);
@@ -42,10 +43,13 @@ public:
 		InitializeRandomWeights(rng);
 	}
 
-	void SetActivation(std::shared_ptr<IActivation> activation);
+	void SetActivationAndCost(std::shared_ptr<IActivation> activation , std::shared_ptr<ICost> cost);
 	 
 	int ValuesCount();
 
 	std::vector<double> CalculateValues(std::vector<double> inputs, std::shared_ptr<LayerBuffer> layerBuffer);
-	void CalculateOutputLayerResults(std::vector<double> expectedResults, std::shared_ptr<LayerBuffer> outputLayerBuffer);
+	void CalculateOutputLayerGradient(std::vector<double> expectedResults, std::shared_ptr<LayerBuffer> outputLayerBuffer);
+	void CalculateHiddenLayerGradient(std::shared_ptr<LayerBuffer> currentLayerBuffer, std::shared_ptr<Layer> forwardLayer, std::shared_ptr<LayerBuffer> forwardLayerBuffer);
+
+	void UpdateGradients(std::shared_ptr<LayerBuffer> outputLayerBuffer);
 };

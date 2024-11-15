@@ -51,19 +51,41 @@ std::vector<double> Layer::CalculateValues(std::vector<double> inputs, std::shar
 	return outputs;
 }
 
-void Layer::CalculateOutputLayerResults(std::vector<double> expectedResults,
+void Layer::CalculateOutputLayerGradient(std::vector<double> expectedResults,
 	std::shared_ptr<LayerBuffer> outputLayerBuffer)
 {
 	for (size_t i = 0; i < outputLayerBuffer->valuesOriginal.size(); i++)
 	{
+		auto cost = cost.CalculateCost(outputLayerBuffer->valuesOriginal[i], expectedResults[i]);
+		auto activationDerivative = activation->Derivative(outputLayerBuffer->valuesOriginal, i);
+		outputLayerBuffer->valuesOriginal[i] += expectedResults[i];
+	}
+}
 
+void Layer::CalculateHiddenLayerGradient(std::shared_ptr<LayerBuffer> currentLayerBuffer,
+	std::shared_ptr<Layer> forwardLayer, std::shared_ptr<LayerBuffer> forwardLayerBuffer)
+{
+
+}
+
+void Layer::UpdateGradients(std::shared_ptr<LayerBuffer> outputLayerBuffer)
+{
+	for (size_t i = 0; i < nodesOut; i++)
+	{
+		float nodeValue = values[i];
+		for (size_t j = 0; j < nodesIn; j++)
+		{
+			float derivativeCostWeight = nodeValue * outputLayerBuffer->valuesActivation[j];
+			weightsGradient[GetWeight(j,i)] = derivativeCostWeight;
+		}
 	}
 }
 
 
-void Layer::SetActivation(std::shared_ptr<IActivation> activation)
+void Layer::SetActivationAndCost(std::shared_ptr<IActivation> activation , std::shared_ptr<ICost> cost)
 {
 	this->activation = activation;
+	this->cost = cost;
 }
 
 int Layer::ValuesCount() { return values.size(); }
