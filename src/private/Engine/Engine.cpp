@@ -10,8 +10,8 @@ void Engine::Initialize()
 	logger = std::make_shared<Logger>();
 	neuralNetworkController = std::make_shared<NeuralNetworkController>();
 
-	renderingSystem = std::make_shared<RenderingSystem>(true, true, nullptr , messageBus);
-	renderingSystem->Initialize();
+	//renderingSystem = std::make_shared<RenderingSystem>(true, true, nullptr , messageBus);
+	//renderingSystem->Initialize();
 	InitializeNeuralNetworkProcess();
 	//ImGui::CreateContext
 }
@@ -33,10 +33,11 @@ void Engine::ProcessMainLoop()
 	while (bRenderingSystemRunning || bNeuralNetworkSystemRunning)
 	{
 		int retFlag;
-		renderingSystem->ProcessMainRenderingLoop(bRenderingSystemRunning, retFlag);
+		//renderingSystem->ProcessMainRenderingLoop(bRenderingSystemRunning, retFlag);
 		neuralNetworkController->Run(bNeuralNetworkSystemRunning);
 	}
-	renderingSystem->DisposeRendering();
+
+	//renderingSystem->DisposeRendering();
 }
 
 void Engine::Dispose()

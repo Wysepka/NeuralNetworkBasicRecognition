@@ -18,7 +18,7 @@ public:
 
 	LayerBuffer(int nodesIn, int nodesOut , LayerType layerType) : nodesIn(nodesIn) , nodesOut(nodesOut) , layerType(layerType)
 	{
-		valuesOriginal = std::vector<double>(nodesOut);
+		valuesOriginal = std::vector<double>(nodesIn);
 		valuesCalculated = std::vector<double>(nodesOut);
 		valuesGradient = std::vector<double>(nodesOut);
 		valuesActivation = std::vector<double>(nodesOut);

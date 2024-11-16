@@ -2,9 +2,9 @@
 
 void Layer::InitializeRandomWeights(std::mt19937& rng)
 {
-	for (size_t i = 0; i < weightsForward.size(); i++)
+	for (size_t i = 0; i < weightsBackwards.size(); i++)
 	{
-		weightsForward[i] = RandomInNormalDistribution(rng, 0.0, 1.0) / std::sqrt(values.size());
+		weightsBackwards[i] = RandomInNormalDistribution(rng, 0.0, 1.0) / std::sqrt(values.size());
 	}
 }
 
@@ -22,16 +22,22 @@ double Layer::RandomInNormalDistribution(std::mt19937& rng, double mean, double 
 double Layer::GetWeight(unsigned int nodeIn, unsigned int nodeOut)
 {
 	int index = nodesIn * nodeOut + nodeIn;
-	return weightsForward[index];
+	return weightsBackwards[index];
 }
+
+int Layer::GetFlatWeightIndex(unsigned int nodeIn, unsigned int nodeOut)
+{
+	return nodesIn * nodeOut + nodeIn;
+}
+
 
 std::vector<double> Layer::CalculateValues(std::vector<double> inputs, std::shared_ptr<LayerBuffer> layerBuffer)
 {
 	layerBuffer->valuesOriginal = inputs;
 	std::vector<double> outputs;
-	if (inputs.size() != values.size()) 
+	if (inputs.size() != nodesIn)
 	{
-		throw std::runtime_error("Inputs Size is different than Values size in input Layer !");
+		throw std::runtime_error("Inputs Size is different than NodesIn size in input Layer !");
 		return outputs;
 	}
 	for (size_t i = 0; i < nodesOut; i++)
@@ -39,7 +45,12 @@ std::vector<double> Layer::CalculateValues(std::vector<double> inputs, std::shar
 		double valueBiased = biases[i];
 		for (size_t j = 0; j < nodesIn; j++)
 		{
-			valueBiased += weightsForward[GetWeight(j, i)];
+			double weightValue = GetWeight(j, i);
+			valueBiased += weightValue;
+			if(valueBiased > 10)
+			{
+				auto s = 's';
+			}
 		}
 		layerBuffer->valuesCalculated[i] = valueBiased;
 	}
@@ -49,13 +60,13 @@ std::vector<double> Layer::CalculateValues(std::vector<double> inputs, std::shar
 		layerBuffer->valuesActivation[i] = activation->Activate(layerBuffer->valuesCalculated, i);
 	}
 
-	return outputs;
+	return layerBuffer->valuesActivation;
 }
 
 void Layer::CalculateOutputLayerGradient(std::vector<double> expectedResults,
 	std::shared_ptr<LayerBuffer> outputLayerBuffer)
 {
-	for (size_t i = 0; i < outputLayerBuffer->valuesOriginal.size(); i++)
+	for (size_t i = 0; i < outputLayerBuffer->valuesGradient.size(); i++)
 	{
 		auto costValue = cost->CostFunction(outputLayerBuffer->valuesActivation, expectedResults);
 		auto activationDerivative = activation->Derivative(outputLayerBuffer->valuesCalculated, i);
@@ -69,12 +80,12 @@ void Layer::CalculateHiddenLayerGradient(std::shared_ptr<LayerBuffer> currentLay
 	for (size_t i = 0; i < nodesOut; i++)
 	{
 		double newNodeValue = 0.f;
-		for (size_t j = 0; j < nodesIn; j++)
+		for (size_t j = 0; j < forwardLayer->NodesOut(); j++)
 		{
-			auto forwardWeight = forwardLayer->weightsForward[GetWeight(j, i)];
+			auto forwardWeight = forwardLayer->GetWeight(i, j);
 			newNodeValue += forwardWeight * forwardLayerBuffer->valuesGradient[j];
 		}
-		newNodeValue += activation->Derivative(currentLayerBuffer->valuesCalculated, i);
+		newNodeValue *= activation->Derivative(currentLayerBuffer->valuesCalculated, i);
 		currentLayerBuffer->valuesGradient[i] = newNodeValue;
 	}
 }
@@ -83,11 +94,12 @@ void Layer::UpdateGradients(std::shared_ptr<LayerBuffer> currentLayerBuffer)
 {
 	for (size_t i = 0; i < nodesOut; i++)
 	{
-		float nodeValue = currentLayerBuffer->valuesActivation[i];
+		double nodeValue = currentLayerBuffer->valuesGradient[i];
 		for (size_t j = 0; j < nodesIn; j++)
 		{
-			float derivativeCostWeight = nodeValue * currentLayerBuffer->valuesOriginal[j];
-			weightsGradient[GetWeight(j,i)] += derivativeCostWeight;
+			double derivativeCostWeight = nodeValue * currentLayerBuffer->valuesOriginal[j];
+			int flatWeightIndex = GetFlatWeightIndex(j,i);
+			weightsGradient[flatWeightIndex] += derivativeCostWeight;
 		}
 	}
 	for (size_t i = 0; i < biases.size(); i++)
@@ -101,18 +113,18 @@ void Layer::ApplyGradients(double learnRate, double decayFactor, double momentum
 {
 	float decayValue = (1 - decayFactor * learnRate);
 
-	for (size_t i = 0; i < weightsForward.size(); i++)
+	for (size_t i = 0; i < weightsBackwards.size(); i++)
 	{
 		double velocity = weightVelocity[i] * momentum - weightsGradient[i] * learnRate;
 		weightVelocity[i] = velocity;
-		weightsForward[i] = weightsForward[i] + weightVelocity[i] * decayValue;
+		weightsBackwards[i] = weightsBackwards[i] + weightVelocity[i] * decayValue;
 		weightsGradient[i] = 0;
 	}
 
 	for (size_t i = 0; i < biases.size(); i++) {
 		double velocity = biasVelocity[i] * momentum - biases[i] * learnRate;
 		biasVelocity[i] = velocity;
-		biases[i] = biases[i] + biasVelocity[i] * decayValue;
+		biases[i] += velocity;
 		biasesGradient[i] = 0;
 	}
 }
@@ -125,3 +137,11 @@ void Layer::SetActivationAndCost(std::shared_ptr<IActivation> activation , std::
 }
 
 int Layer::ValuesCount() { return values.size(); }
+
+int Layer::NodesIn() {
+	return nodesIn;
+}
+
+int Layer::NodesOut() {
+	return nodesOut;
+}

@@ -20,3 +20,22 @@ std::vector<double> NeuralNetworkUtility::GetPredictedOutput(std::shared_ptr<Neu
     }
     return predictedOutput;
 }
+
+void NeuralNetworkUtility::GetHighestPropabilityPrediction(std::shared_ptr<LayerBuffer> outputLayerBuffer,
+    int &predictedNum, float &chance) {
+
+    float highestChance = 0;
+    int highestChanceIndex = 0;
+
+    for (size_t i = 0; i <= outputLayerBuffer->valuesActivation.size(); i++)
+    {
+        if(outputLayerBuffer->valuesActivation[i] > highestChance)
+        {
+            highestChance = outputLayerBuffer->valuesActivation[i];
+            highestChanceIndex = i;
+        }
+    }
+
+    predictedNum = highestChanceIndex;
+    chance = highestChance;
+}
