@@ -17,4 +17,5 @@ class NeuralNetworkUtility
 public:
     static std::vector<double> GetPredictedOutput(std::shared_ptr<NeuralDataObject> dataObject);
     static void GetHighestPropabilityPrediction(std::shared_ptr<LayerBuffer> outputLayerBuffer , int& predictedNum, float& chance);
+    static double Lerp(double a, double b, double t);
 };

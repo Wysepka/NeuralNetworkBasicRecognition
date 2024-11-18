@@ -26,7 +26,7 @@ private:
 
 	void FeedForward(std::vector<double> inputs, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
 	void Backpropagate(std::shared_ptr<NeuralDataObject> dataObject, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
-	void UpdateNetwork();
+	void UpdateNetwork(double learningRate);
 public:
 	void SetConfig(NeuralNetworkConfig config);
 	void RunNetwork(std::shared_ptr<NeuralDataFile> dataFile);

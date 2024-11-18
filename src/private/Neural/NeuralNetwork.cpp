@@ -76,22 +76,39 @@ void NeuralNetwork::RunNetwork(std::shared_ptr<NeuralDataFile> dataFile)
 		auto data = *(datas[i]);
 		FeedForward((datas[i])->GetFlatObjectPixelsArray_Normalized() , buffer);
 		Backpropagate(datas[i], buffer);
-		UpdateNetwork();
+
+		double iterationDouble = static_cast<double>(i);
+		double dataSizeDouble = static_cast<double>(datas.size());
+		double iterationPercentage = iterationDouble / dataSizeDouble;
+
+		float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
+
+		UpdateNetwork(learningRate);
 
 		int predictedNum = 0;
 		float predictionChance = 0.f;
+
+		std::vector<double> propabilityChances = buffer[buffer.size() - 1]->valuesActivation;
 
 		NeuralNetworkUtility::GetHighestPropabilityPrediction(buffer[buffer.size() - 1] , predictedNum , predictionChance);
 
 		//std::cout << "Num Prediction is "  <<predictedNum << " | Label is "<<  std::endl;
 		//std::cout << "===============================================" << std::endl;
 
-		bool correctPrediction = predictedNum == datas[i]->GetLabel();
+		int label = datas[i]->GetLabel();
+
+		bool correctPrediction = predictedNum == label;
 		if (correctPrediction)
 		{
 			correctlyPredicted++;
 		}
-		std::cout << "Correct Prediction Percentage: " << correctlyPredicted / (i+1) << std::endl;
+		float currentPredictionPercentage = static_cast<float>(correctlyPredicted) / static_cast<float>(i+1);
+		std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
+
+		for (size_t i = 0; i < propabilityChances.size(); i++)
+		{
+			std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
+		}
 
 		//NeuralNetworkResult result()
 
@@ -149,11 +166,11 @@ void NeuralNetwork::Backpropagate(std::shared_ptr<NeuralDataObject> dataObject, 
 	//outputLayer->CalculateOutputLayerGradient()
 }
 
-void NeuralNetwork::UpdateNetwork()
+void NeuralNetwork::UpdateNetwork(double learningRate)
 {
 	for (size_t i = 0; i < layersCombined.size(); i++)
 	{
 		//Implement NeuralPreferences struct as passing for params
-		layersCombined[i]->ApplyGradients(0.01f, 0.1f , 0.9f);
+		layersCombined[i]->ApplyGradients(learningRate, 0.1f , 0.9f);
 	}
 }
