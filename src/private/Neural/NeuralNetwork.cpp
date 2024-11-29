@@ -105,12 +105,13 @@ void NeuralNetwork::RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData
 void NeuralNetwork::IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas, int correctlyPredicted) {
 	for (size_t i = 0; i < datas.size(); i++)
 	{
-		RunSingleTrainingIterationThroughNetwork(datas[i], correctlyPredicted, i);
+		RunSingleTrainingIterationThroughNetwork(datas[i], correctlyPredicted, i , datas.size());
 	}
 }
 
-void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, int correctlyPredicted, size_t iterationID)
+void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, int correctlyPredicted, size_t iterationID , size_t dataCount)
 {
+	/*
 	std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
 
 	//auto data = *(datas[i]);
@@ -136,6 +137,47 @@ void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<Neu
 	//NeuralNetworkResult result()
 
 	//MessageBus::Publish<NeuralNetworkIterationMessage>()
+	*/
+
+	std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
+
+	//auto data = *(datas);
+	FeedForward((data)->GetFlatObjectPixelsArray_Normalized() , buffer);
+	Backpropagate(data, buffer);
+
+	double iterationDouble = static_cast<double>(iterationID);
+	double dataSizeDouble = static_cast<double>(dataCount);
+	double iterationPercentage = iterationDouble / dataSizeDouble;
+
+	float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
+
+	UpdateNetwork(learningRate);
+
+	int predictedNum = 0;
+	float predictionChance = 0.f;
+
+	std::vector<double> propabilityChances = buffer[buffer.size() - 1]->valuesActivation;
+
+	NeuralNetworkUtility::GetHighestPropabilityPrediction(buffer[buffer.size() - 1] , predictedNum , predictionChance);
+
+	//std::cout << "Num Prediction is "  <<predictedNum << " | Label is "<<  std::endl;
+	//std::cout << "===============================================" << std::endl;
+
+	int label = data->GetLabel();
+
+	bool correctPrediction = predictedNum == label;
+	if (correctPrediction)
+	{
+		correctlyPredicted++;
+	}
+	float currentPredictionPercentage = static_cast<float>(correctlyPredicted) / static_cast<float>(iterationID+1);
+	std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
+
+	for (size_t i = 0; i < propabilityChances.size(); i++)
+	{
+		std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
+	}
+
 }
 
 std::vector<std::shared_ptr<LayerBuffer>> NeuralNetwork::GetLayerBufferVector()
@@ -188,11 +230,11 @@ void NeuralNetwork::Backpropagate(std::shared_ptr<NeuralDataObject> dataObject, 
 	//outputLayer->CalculateOutputLayerGradient()
 }
 
-void NeuralNetwork::UpdateNetwork()
+void NeuralNetwork::UpdateNetwork(double learningRate)
 {
 	for (size_t i = 0; i < layersCombined.size(); i++)
 	{
 		//Implement NeuralPreferences struct as passing for params
-		layersCombined[i]->ApplyGradients(0.01f, 0.1f , 0.9f);
+		layersCombined[i]->ApplyGradients(learningRate, 0.1f , 0.9f);
 	}
 }

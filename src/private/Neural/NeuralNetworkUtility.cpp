@@ -27,7 +27,7 @@ void NeuralNetworkUtility::GetHighestPropabilityPrediction(std::shared_ptr<Layer
     float highestChance = 0;
     int highestChanceIndex = 0;
 
-    for (size_t i = 0; i <= outputLayerBuffer->valuesActivation.size(); i++)
+    for (size_t i = 0; i < outputLayerBuffer->valuesActivation.size(); i++)
     {
         if(outputLayerBuffer->valuesActivation[i] > highestChance)
         {
@@ -64,4 +64,8 @@ std::vector<std::shared_ptr<NeuralDataBatch>> NeuralNetworkUtility::SplitEpochTo
     }
 
     return batches;
+}
+
+double NeuralNetworkUtility::Lerp(double a, double b, double t) {
+    return a + t * (b - a);
 }

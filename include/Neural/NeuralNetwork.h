@@ -35,7 +35,7 @@ private:
 
 	void FeedForward(std::vector<double> inputs, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
 	void Backpropagate(std::shared_ptr<NeuralDataObject> dataObject, std::vector<std::shared_ptr<LayerBuffer>> bufferVector);
-	void UpdateNetwork();
+	void UpdateNetwork(double learningRate);
 public:
 	void SetConfig(NeuralNetworkConfig config);
 
@@ -43,7 +43,7 @@ public:
 	void RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData);
 
 	void RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data,
-	                                              int correctlyPredicted, size_t iterationID);
+	                                              int correctlyPredicted, size_t iterationID , size_t dataCount);
 
 	void IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas, int correctlyPredicted);
 
