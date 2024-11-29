@@ -14,7 +14,8 @@ void NeuralNetworkController::Initialize(std::shared_ptr<NeuralDataFile> neuralD
     auto sigmoidActivation = std::make_shared<Sigmoid>();
     auto crossEntropyCost = std::make_shared<CrossEntropy>();
 
-    NeuralNetworkConfig neuralConfig(neuralDataFile->GetNeuralDataObjects()[0]->GetFlatObjectPixelsArray_Normalized().size() , hiddenConfig , 10 , sigmoidActivation , crossEntropyCost);
+    NeuralNetworkConfig neuralConfig(neuralDataFile->GetNeuralDataObjects()[0]->GetFlatObjectPixelsArray_Normalized().size() , hiddenConfig , 10
+        , sigmoidActivation , crossEntropyCost , 300 , 30 , true, 8);
 
     network->SetConfig(neuralConfig);
 }
