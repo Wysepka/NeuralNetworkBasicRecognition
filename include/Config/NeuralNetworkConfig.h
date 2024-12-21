@@ -18,6 +18,25 @@ public:
 	uint16_t GetNodesCount() { return nodesCount; }
 };
 
+struct NeuralNetworkLogConfig
+{
+private:
+	bool bUseLogPerIteration;
+	bool bUseLogPerBatch;
+	bool bUseLogPerEpoch;
+public:
+	NeuralNetworkLogConfig(bool useLogPerIteration, bool useLogPerBatch, bool useLogPerEpoch) :
+	bUseLogPerIteration(useLogPerIteration), bUseLogPerBatch(useLogPerBatch) , bUseLogPerEpoch(useLogPerEpoch)
+	{}
+
+	NeuralNetworkLogConfig() : bUseLogPerIteration(false) , bUseLogPerBatch(false) , bUseLogPerEpoch(false)
+	{}
+
+	bool GetUseLogPerIteration() {return bUseLogPerIteration;}
+	bool GetUseLogPerBatch() {return bUseLogPerBatch;}
+	bool GetUseLogPerEpoch() {return bUseLogPerEpoch;}
+};
+
 struct NeuralNetworkConfig
 {
 private:
@@ -34,25 +53,33 @@ private:
 	uint16_t maxParallelBatchComputations;
 	bool bUseParallelBatchComputation;
 
+	NeuralNetworkLogConfig logConfig;
+
 public:
+	static float LearningRateInitial;
+	static float DecayRate;
+
 	NeuralNetworkConfig(uint16_t inputLayer, std::vector<NeuralNetworkHiddenConfig> hiddenLayer, uint16_t outputLayer
 		, std::shared_ptr<IActivation> outputActivation, std::shared_ptr<ICost> outputCost
-		, uint32_t batchSize, uint32_t epochCount , bool useParallelBatchComp , uint16_t maxParallelBatchComputations)
+		, uint32_t batchSize, uint32_t epochCount , bool useParallelBatchComp , uint16_t maxParallelBatchComputations
+		, NeuralNetworkLogConfig loggingConfig)
 		: inputLayer(inputLayer) , hiddenLayer(hiddenLayer) , outputLayer(outputLayer) , outputActivation(outputActivation)
 		, outputCost(outputCost) , batchSize(batchSize) , epochCount(epochCount) , bUseParallelBatchComputation(useParallelBatchComp)
-		, maxParallelBatchComputations(maxParallelBatchComputations)
+		, maxParallelBatchComputations(maxParallelBatchComputations) , logConfig(loggingConfig)
 	{
-
 	}
-public:
-	uint16_t GetInputLayer() { return inputLayer; }
-	std::vector<NeuralNetworkHiddenConfig> GetHiddenLayer() { return hiddenLayer; }
-	uint16_t GetOutputLayer() { return outputLayer; }
-	std::shared_ptr<IActivation> GetOutputActivation() { return outputActivation; }
-	std::shared_ptr<ICost> GetOutputCost() { return outputCost; }
 
-	uint32_t GetBatchSize() {return batchSize;}
-	uint32_t GetEpochCount() {return epochCount;}
-	bool GetUseParallelBatchComputation() {return bUseParallelBatchComputation;}
-	uint16_t GetMaxParallelBatchComputation() {return maxParallelBatchComputations;}
+	uint16_t GetInputLayer() const;
+	std::vector<NeuralNetworkHiddenConfig> GetHiddenLayer();
+	uint16_t GetOutputLayer() const;
+	std::shared_ptr<IActivation> GetOutputActivation();
+	std::shared_ptr<ICost> GetOutputCost();
+
+	uint32_t GetBatchSize() const;
+	uint32_t GetEpochCount() const;
+	bool GetUseParallelBatchComputation() const;
+	uint16_t GetMaxParallelBatchComputation() const;
+
+	NeuralNetworkLogConfig GetNeuralNetworkLogConfig() const;
 };
+

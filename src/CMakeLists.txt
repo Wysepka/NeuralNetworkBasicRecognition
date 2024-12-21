@@ -11,6 +11,7 @@ add_library(NeuralNetwork_Sources ${SRC_FILES} "private/Engine/Engine.cpp" "priv
         private/Neural/NeuralNetworkResult.cpp
         private/Neural/NeuralNetworkController.cpp
         private/Data/NeuralDataBatch.cpp
+        private/Config/NeuralNetworkConfig.cpp
 )
 
 # (Optional) Link any necessary libraries if specific to this module

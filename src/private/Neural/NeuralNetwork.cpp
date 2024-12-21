@@ -5,6 +5,7 @@
 
 void NeuralNetwork::SetConfig(NeuralNetworkConfig config)
 {
+	this->logConfig = config.GetNeuralNetworkLogConfig();
 	auto hiddenLayerConfig = config.GetHiddenLayer();
 	if (hiddenLayerConfig.size() == 0)
 	{
@@ -55,61 +56,77 @@ void NeuralNetwork::RunNetwork(std::shared_ptr<NeuralDataFile> dataFile)
 	auto datas = dataFile->GetNeuralDataObjects();
 
 	int correctlyPredicted = 0;
+	std::shared_ptr<NeuralNetworkResult> networkResult = std::make_shared<NeuralNetworkResult>();
+
+	networkResult->totalCount = datas.size() * epochCount;
 
 	for (size_t i = 0; i < epochCount; i++) {
 		std::vector<std::shared_ptr<NeuralDataBatch>> batches = NeuralNetworkUtility::SplitEpochToBatchVector(dataFile , batchSize);
 
+		for (size_t j = 0; j < batches.size(); j++)
+		{
+			std::shared_ptr<NeuralNetworkGroupResult> batchResult = std::make_shared<NeuralNetworkGroupResult>();
+			batchResult->batchID = j;
+			networkResult->batchResults.push_back(batchResult);
+			batches[i]->groupResultRef = batchResult;
+		}
+
+		auto epochResult = std::make_shared<NeuralNetworkGroupResult>();
+		epochResult->epochID = i;
+		networkResult->epochResults.push_back(epochResult);
+
 		if(bRunParallel)
 		{
-			RunBatchesParallel(batches);
+			RunBatchesParallel(batches , networkResult);
 		}
 		else
 		{
-			IterateThroughAllDataObjects(datas, correctlyPredicted);
+			IterateThroughAllDataObjects(datas, networkResult);
 		}
 	}
 }
 
-void NeuralNetwork::RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batchesVector)
+void NeuralNetwork::RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batchesVector , std::shared_ptr<NeuralNetworkResult> networkResult)
 {
 	int batchesCompleted = 0;
 	int batchesRunning = 0;
-	while(batchesVector.size() > 0)
-	{
+
+	while (batchesCompleted < batchesVector.size()) {
 		std::vector<std::thread> batchesThreads;
+		int batchesToRun = std::min<int>(batchMaxComputeCount, static_cast<int>(batchesVector.size() - batchesCompleted));
 
-		int batchesToRun = batchesVector.size() - batchMaxComputeCount <= batchesCompleted ? batchesVector.size() - batchesCompleted : batchMaxComputeCount;
-		batchesRunning = 0;
-
-		for (size_t i = 0; i < batchesToRun; i++)
-		{
-			std::thread batchThread(&NeuralNetwork::RunBatchIteration, this , batchesVector[batchesCompleted + i]);
-			batchesThreads.push_back(batchThread);
-			batchesThreads[batchesThreads.size() - 1].join();
-			batchesCompleted++;
-			batchesRunning++;
+		for (int i = 0; i < batchesToRun; ++i) {
+			// Start a new thread for each batch
+			batchesThreads.emplace_back(&NeuralNetwork::RunBatchIteration, this, batchesVector[batchesCompleted + i], networkResult);
 		}
 
-		for (size_t i = 0; i < batchesRunning; i++)
-		{
-			batchesThreads[i].join();
+		for (auto& thread : batchesThreads) {
+			if (thread.joinable()) {
+				thread.join(); // Wait for all threads to finish
+			}
 		}
+
+		batchesCompleted += batchesToRun;
 	}
 }
 
-void NeuralNetwork::RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData)
+void NeuralNetwork::RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData, std::shared_ptr<NeuralNetworkResult> networkResult)
 {
-
+	auto neuralDataObjects = batchData->GetNeuralDataObjects();
+	for (size_t i = 0; i < neuralDataObjects.size(); i++)
+	{
+		RunSingleTrainingIterationThroughNetwork(neuralDataObjects[i] , batchData->GetIterationIDStart() , networkResult);
+	}
 }
 
-void NeuralNetwork::IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas, int correctlyPredicted) {
+void NeuralNetwork::IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas , std::shared_ptr<NeuralNetworkResult> result) {
 	for (size_t i = 0; i < datas.size(); i++)
 	{
-		RunSingleTrainingIterationThroughNetwork(datas[i], correctlyPredicted, i , datas.size());
+		RunSingleTrainingIterationThroughNetwork(datas[i], i , result);
 	}
 }
 
-void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, int correctlyPredicted, size_t iterationID , size_t dataCount)
+void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, size_t iterationID , std::shared_ptr<NeuralNetworkResult> result)
 {
 	/*
 	std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
@@ -146,10 +163,21 @@ void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<Neu
 	Backpropagate(data, buffer);
 
 	double iterationDouble = static_cast<double>(iterationID);
-	double dataSizeDouble = static_cast<double>(dataCount);
+	double dataSizeDouble = static_cast<double>(result->totalCount);
 	double iterationPercentage = iterationDouble / dataSizeDouble;
 
-	float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
+	float learningRate = 0.01f;
+	//float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
+	if(bRunParallel)
+	{
+		int batchID = result->batchResults[result->batchResults.size() - 1]->batchID;
+		int epochID = result->epochResults[result->epochResults.size() - 1]->epochID;
+		learningRate = NeuralNetworkUtility::GetLearningRate(bRunParallel , iterationID , batchID , epochID , result->totalCount);
+	}
+	else
+	{
+		learningRate = NeuralNetworkUtility::GetLearningRate(bRunParallel , iterationID , 0 , 0 ,result->totalCount);
+	}
 
 	UpdateNetwork(learningRate);
 
@@ -164,18 +192,31 @@ void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<Neu
 	//std::cout << "===============================================" << std::endl;
 
 	int label = data->GetLabel();
+	result->testedCount++;
 
 	bool correctPrediction = predictedNum == label;
 	if (correctPrediction)
 	{
-		correctlyPredicted++;
+		result->positiveResultCount++;
 	}
-	float currentPredictionPercentage = static_cast<float>(correctlyPredicted) / static_cast<float>(iterationID+1);
-	std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
 
-	for (size_t i = 0; i < propabilityChances.size(); i++)
+	if(bRunParallel)
 	{
-		std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
+		int batchResultID = result->batchResults.size() -1;
+		result->batchResults[batchResultID]->totalPredicted++;
+		result->batchResults[batchResultID]->predictions[predictedNum];
+		result->batchResults[batchResultID]->totalPredictions[label];
+	}
+
+	if(logConfig.GetUseLogPerIteration())
+	{
+		float currentPredictionPercentage = static_cast<float>(result->positiveResultCount) / static_cast<float>(iterationID+1);
+		std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
+
+		for (size_t i = 0; i < propabilityChances.size(); i++)
+		{
+			std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
+		}
 	}
 
 }

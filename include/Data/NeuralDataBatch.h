@@ -6,15 +6,22 @@
 #define NEURALDATABATCH_H
 
 #include "NeuralDataFile.h"
+#include "Neural/NeuralNetworkResult.h"
 
 struct NeuralDataBatch
 {
 private:
-    std::vector<NeuralDataObject> neuralDataObjects;
+    std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects;
+    long long iterationIDStart;
 
 public:
     NeuralDataBatch();
-    NeuralDataBatch(std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects);
+    NeuralDataBatch(std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects , long long iterationStartID);
+
+    std::vector<std::shared_ptr<NeuralDataObject>> GetNeuralDataObjects();
+    long long GetIterationIDStart();
+    std::shared_ptr<NeuralNetworkGroupResult> groupResultRef;
+
 };
 
 #endif //NEURALDATABATCH_H

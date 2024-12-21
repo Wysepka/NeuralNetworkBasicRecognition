@@ -89,7 +89,7 @@ GLAPI int gladLoadGLLoader(GLADloadproc);
 #if __has_include("KHR/khrplatform.h")
 #include <KHR/khrplatform.h>
 #elif __has_include("../../lib/glad/include/KHR/khrplatform.h")
-//#include "../../lib/glad/include/KHR/khrplatform.h"
+#include "../../lib/glad/include/KHR/khrplatform.h"
 #endif
 typedef unsigned int GLenum;
 typedef unsigned char GLboolean;

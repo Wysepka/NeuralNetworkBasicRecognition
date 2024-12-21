@@ -11,6 +11,7 @@
 #include "Data/NeuralDataFile.h"
 #include "Event/MessageBus.h"
 #include "Data/NeuralDataBatch.h"
+#include "NeuralNetworkResult.h"
 
 class NeuralNetwork
 {
@@ -20,6 +21,11 @@ private:
 	std::shared_ptr<Layer> outputLayer;
 
 	std::vector<std::shared_ptr<Layer>> layersCombined;
+
+	NeuralNetworkLogConfig logConfig;
+	//long long iterationID,long long batchID, long long epochID , long long dataTotalSize , float decayRate
+	//Function for calculating LearningRate at current iteration
+	std::function<float(long long,long long, long long, long long, float)> getLearningRateFnc;
 
 	NeuralDataFile dataFile;
 
@@ -39,13 +45,12 @@ private:
 public:
 	void SetConfig(NeuralNetworkConfig config);
 
-	void RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batches);
-	void RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData);
+	void RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batches , std::shared_ptr<NeuralNetworkResult> networkResult);
+	void RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData , std::shared_ptr<NeuralNetworkResult> networkResult);
 
-	void RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data,
-	                                              int correctlyPredicted, size_t iterationID , size_t dataCount);
+	void RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, size_t iterationID , std::shared_ptr<NeuralNetworkResult> result);
 
-	void IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas, int correctlyPredicted);
+	void IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas , std::shared_ptr<NeuralNetworkResult> result);
 
 	void RunNetwork(std::shared_ptr<NeuralDataFile> dataFile);
 };

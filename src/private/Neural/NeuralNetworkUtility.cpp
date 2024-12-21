@@ -4,6 +4,8 @@
 
 #include "Neural/NeuralNetworkUtility.h"
 
+#include <Config/NeuralNetworkConfig.h>
+
 std::vector<double> NeuralNetworkUtility::GetPredictedOutput(std::shared_ptr<NeuralDataObject> dataObject)
 {
     std::vector<double> predictedOutput;
@@ -45,7 +47,8 @@ std::vector<std::shared_ptr<NeuralDataBatch>> NeuralNetworkUtility::SplitEpochTo
 {
     int batchesCount = dataFile->GetNeuralDataObjects().size() / batchSize;
 
-    std::vector<std::shared_ptr<NeuralDataBatch>> batches(batchesCount);
+    std::vector<std::shared_ptr<NeuralDataBatch>> batches;
+    batches.reserve(batchesCount);
 
     int batchIterator = 0;
     auto dataObjects = dataFile->GetNeuralDataObjects();
@@ -58,7 +61,9 @@ std::vector<std::shared_ptr<NeuralDataBatch>> NeuralNetworkUtility::SplitEpochTo
 
         if(batchIterator >= batchSize)
         {
-            batches.push_back(std::make_shared<NeuralDataBatch>(objectCache));
+            auto neuralBatch = std::make_shared<NeuralDataBatch>(objectCache, i + 1 - objectCache.size());
+            batches.push_back(neuralBatch);
+            batchIterator = 0;
             objectCache.clear();
         }
     }
@@ -68,4 +73,21 @@ std::vector<std::shared_ptr<NeuralDataBatch>> NeuralNetworkUtility::SplitEpochTo
 
 double NeuralNetworkUtility::Lerp(double a, double b, double t) {
     return a + t * (b - a);
+}
+
+float NeuralNetworkUtility::GetLearningRate(bool parallel, long long iterationID,long long batchID, long long epochID , long long dataTotalSize)
+{
+    if(parallel)
+    {
+        // Example: Decay the learning rate exponentially
+        double epochFactor = std::exp(-NeuralNetworkConfig::DecayRate * epochID);
+        double batchFactor = 1.0 / (1.0 + NeuralNetworkConfig::DecayRate * batchID);
+        double iterationFactor = 1.0 / (1.0 + NeuralNetworkConfig::DecayRate * iterationID);
+
+        return NeuralNetworkConfig::LearningRateInitial * epochFactor * batchFactor * iterationFactor;
+    }
+    else
+    {
+        return iterationID / dataTotalSize;
+    }
 }

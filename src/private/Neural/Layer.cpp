@@ -111,23 +111,25 @@ void Layer::UpdateGradients(std::shared_ptr<LayerBuffer> currentLayerBuffer)
 
 void Layer::ApplyGradients(double learnRate, double decayFactor, double momentum)
 {
-	std::lock_guard<std::mutex> lock(applyGradientMutex);
-
-	float decayValue = (1 - decayFactor * learnRate);
-
-	for (size_t i = 0; i < weightsBackwards.size(); i++)
 	{
-		double velocity = weightVelocity[i] * momentum - weightsGradient[i] * learnRate;
-		weightVelocity[i] = velocity;
-		weightsBackwards[i] = weightsBackwards[i] + weightVelocity[i] * decayValue;
-		weightsGradient[i] = 0;
-	}
+		std::lock_guard<std::mutex> lock(applyGradientMutex);
 
-	for (size_t i = 0; i < biases.size(); i++) {
-		double velocity = biasVelocity[i] * momentum - biases[i] * learnRate;
-		biasVelocity[i] = velocity;
-		biases[i] += velocity;
-		biasesGradient[i] = 0;
+		float decayValue = (1 - decayFactor * learnRate);
+
+		for (size_t i = 0; i < weightsBackwards.size(); i++)
+		{
+			double velocity = weightVelocity[i] * momentum - weightsGradient[i] * learnRate;
+			weightVelocity[i] = velocity;
+			weightsBackwards[i] = weightsBackwards[i] + weightVelocity[i] * decayValue;
+			weightsGradient[i] = 0;
+		}
+
+		for (size_t i = 0; i < biases.size(); i++) {
+			double velocity = biasVelocity[i] * momentum - biases[i] * learnRate;
+			biasVelocity[i] = velocity;
+			biases[i] += velocity;
+			biasesGradient[i] = 0;
+		}
 	}
 }
 
