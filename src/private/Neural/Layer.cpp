@@ -111,6 +111,8 @@ void Layer::UpdateGradients(std::shared_ptr<LayerBuffer> currentLayerBuffer)
 
 void Layer::ApplyGradients(double learnRate, double decayFactor, double momentum)
 {
+	std::lock_guard<std::mutex> lock(applyGradientMutex);
+
 	float decayValue = (1 - decayFactor * learnRate);
 
 	for (size_t i = 0; i < weightsBackwards.size(); i++)

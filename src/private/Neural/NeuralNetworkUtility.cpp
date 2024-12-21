@@ -40,6 +40,32 @@ void NeuralNetworkUtility::GetHighestPropabilityPrediction(std::shared_ptr<Layer
     chance = highestChance;
 }
 
+std::vector<std::shared_ptr<NeuralDataBatch>> NeuralNetworkUtility::SplitEpochToBatchVector(std::shared_ptr<NeuralDataFile> dataFile,
+    uint32_t batchSize)
+{
+    int batchesCount = dataFile->GetNeuralDataObjects().size() / batchSize;
+
+    std::vector<std::shared_ptr<NeuralDataBatch>> batches(batchesCount);
+
+    int batchIterator = 0;
+    auto dataObjects = dataFile->GetNeuralDataObjects();
+
+    std::vector<std::shared_ptr<NeuralDataObject>> objectCache;
+    for(uint32_t i = 0; i < dataObjects.size(); i++)
+    {
+        objectCache.push_back(dataObjects[i]);
+        batchIterator++;
+
+        if(batchIterator >= batchSize)
+        {
+            batches.push_back(std::make_shared<NeuralDataBatch>(objectCache));
+            objectCache.clear();
+        }
+    }
+
+    return batches;
+}
+
 double NeuralNetworkUtility::Lerp(double a, double b, double t) {
     return a + t * (b - a);
 }

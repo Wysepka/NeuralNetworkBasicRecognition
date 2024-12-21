@@ -1,9 +1,5 @@
 
 #include "Neural/NeuralNetwork.h"
-
-#include <iostream>
-#include <ostream>
-
 #include "Event/MessageBus.h"
 #include "Neural/NeuralNetworkUtility.h"
 
@@ -16,27 +12,12 @@ void NeuralNetwork::SetConfig(NeuralNetworkConfig config)
 		return;
 	}
 
-	/*
-	inputLayer = std::make_shared<Layer>(config.GetInputLayer() , hiddenLayerConfig[0].GetNodesCount() , LayerType::Input);
-
-	for (size_t i = 0; i < hiddenLayerConfig.size(); i++)
-	{
-		auto nextLayerNodesCount = i == hiddenLayerConfig.size() - 1 ? config.GetOutputLayer() : hiddenLayerConfig[i + 1].GetNodesCount();
-		hiddenLayers.push_back(std::make_shared<Layer>(hiddenLayerConfig[i].GetNodesCount(), nextLayerNodesCount, LayerType::Hidden));
-	}
-
-	outputLayer = std::make_shared<Layer>(config.GetOutputLayer() , 0 , LayerType::Output);
-
-	*/
-
 	for (size_t i = 0; i < hiddenLayerConfig.size(); i++)
 	{
 		int nodesIn = i == 0 ? config.GetInputLayer() : hiddenLayerConfig[i - 1].GetNodesCount();
 		int nodesOut = hiddenLayerConfig[i].GetNodesCount();
 
 		hiddenLayers.push_back(std::make_shared<Layer>(nodesIn , nodesOut , LayerType::Hidden));
-		//auto nextLayerNodesCount = i == hiddenLayerConfig.size() - 1 ? config.GetOutputLayer() : hiddenLayerConfig[i + 1].GetNodesCount();
-		//hiddenLayers.push_back(std::make_shared<Layer>(hiddenLayerConfig[i].GetNodesCount(), nextLayerNodesCount, LayerType::Hidden));
 	}
 
 	outputLayer = std::make_shared<Layer>(hiddenLayerConfig[hiddenLayerConfig.size() - 1].GetNodesCount() , 10 , LayerType::Output);
@@ -45,7 +26,11 @@ void NeuralNetwork::SetConfig(NeuralNetworkConfig config)
 	//layersSize = 2;
 	layersSize = 1;
 	layersSize += hiddenLayerConfig.size();
-	initialized = true;
+
+	batchSize = config.GetBatchSize();
+	epochCount = config.GetEpochCount();
+	bRunParallel = config.GetUseParallelBatchComputation();
+	batchMaxComputeCount = config.GetMaxParallelBatchComputation();
 
 	//layersCombined.push_back(inputLayer);
 	layersCombined.insert(layersCombined.end(), hiddenLayers.begin(), hiddenLayers.end());
@@ -57,6 +42,8 @@ void NeuralNetwork::SetConfig(NeuralNetworkConfig config)
 	}
 
 	MessageBus::Publish<NeuralNetworkInitialized>(std::make_shared<NeuralNetworkInitialized>(layersCombined));
+
+	initialized = true;
 }
 
 void NeuralNetwork::RunNetwork(std::shared_ptr<NeuralDataFile> dataFile)
@@ -69,51 +56,128 @@ void NeuralNetwork::RunNetwork(std::shared_ptr<NeuralDataFile> dataFile)
 
 	int correctlyPredicted = 0;
 
+	for (size_t i = 0; i < epochCount; i++) {
+		std::vector<std::shared_ptr<NeuralDataBatch>> batches = NeuralNetworkUtility::SplitEpochToBatchVector(dataFile , batchSize);
+
+		if(bRunParallel)
+		{
+			RunBatchesParallel(batches);
+		}
+		else
+		{
+			IterateThroughAllDataObjects(datas, correctlyPredicted);
+		}
+	}
+}
+
+void NeuralNetwork::RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batchesVector)
+{
+	int batchesCompleted = 0;
+	int batchesRunning = 0;
+	while(batchesVector.size() > 0)
+	{
+		std::vector<std::thread> batchesThreads;
+
+		int batchesToRun = batchesVector.size() - batchMaxComputeCount <= batchesCompleted ? batchesVector.size() - batchesCompleted : batchMaxComputeCount;
+		batchesRunning = 0;
+
+		for (size_t i = 0; i < batchesToRun; i++)
+		{
+			std::thread batchThread(&NeuralNetwork::RunBatchIteration, this , batchesVector[batchesCompleted + i]);
+			batchesThreads.push_back(batchThread);
+			batchesThreads[batchesThreads.size() - 1].join();
+			batchesCompleted++;
+			batchesRunning++;
+		}
+
+		for (size_t i = 0; i < batchesRunning; i++)
+		{
+			batchesThreads[i].join();
+		}
+	}
+}
+
+void NeuralNetwork::RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData)
+{
+
+}
+
+void NeuralNetwork::IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas, int correctlyPredicted) {
 	for (size_t i = 0; i < datas.size(); i++)
 	{
-		std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
-
-		auto data = *(datas[i]);
-		FeedForward((datas[i])->GetFlatObjectPixelsArray_Normalized() , buffer);
-		Backpropagate(datas[i], buffer);
-
-		double iterationDouble = static_cast<double>(i);
-		double dataSizeDouble = static_cast<double>(datas.size());
-		double iterationPercentage = iterationDouble / dataSizeDouble;
-
-		float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
-
-		UpdateNetwork(learningRate);
-
-		int predictedNum = 0;
-		float predictionChance = 0.f;
-
-		std::vector<double> propabilityChances = buffer[buffer.size() - 1]->valuesActivation;
-
-		NeuralNetworkUtility::GetHighestPropabilityPrediction(buffer[buffer.size() - 1] , predictedNum , predictionChance);
-
-		//std::cout << "Num Prediction is "  <<predictedNum << " | Label is "<<  std::endl;
-		//std::cout << "===============================================" << std::endl;
-
-		int label = datas[i]->GetLabel();
-
-		bool correctPrediction = predictedNum == label;
-		if (correctPrediction)
-		{
-			correctlyPredicted++;
-		}
-		float currentPredictionPercentage = static_cast<float>(correctlyPredicted) / static_cast<float>(i+1);
-		std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
-
-		for (size_t i = 0; i < propabilityChances.size(); i++)
-		{
-			std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
-		}
-
-		//NeuralNetworkResult result()
-
-		//MessageBus::Publish<NeuralNetworkIterationMessage>()
+		RunSingleTrainingIterationThroughNetwork(datas[i], correctlyPredicted, i , datas.size());
 	}
+}
+
+void NeuralNetwork::RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, int correctlyPredicted, size_t iterationID , size_t dataCount)
+{
+	/*
+	std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
+
+	//auto data = *(datas[i]);
+	FeedForward((data)->GetFlatObjectPixelsArray_Normalized() , buffer);
+	Backpropagate(data, buffer);
+	UpdateNetwork();
+
+	int predictedNum = 0;
+	float predictionChance = 0.f;
+
+	NeuralNetworkUtility::GetHighestPropabilityPrediction(buffer[buffer.size() - 1] , predictedNum , predictionChance);
+
+	//std::cout << "Num Prediction is "  <<predictedNum << " | Label is "<<  std::endl;
+	//std::cout << "===============================================" << std::endl;
+
+	bool correctPrediction = predictedNum == data->GetLabel();
+	if (correctPrediction)
+	{
+		correctlyPredicted++;
+	}
+	std::cout << "Correct Prediction Percentage: " << correctlyPredicted / (iterationID+1) << std::endl;
+
+	//NeuralNetworkResult result()
+
+	//MessageBus::Publish<NeuralNetworkIterationMessage>()
+	*/
+
+	std::vector<std::shared_ptr<LayerBuffer>> buffer = GetLayerBufferVector();
+
+	//auto data = *(datas);
+	FeedForward((data)->GetFlatObjectPixelsArray_Normalized() , buffer);
+	Backpropagate(data, buffer);
+
+	double iterationDouble = static_cast<double>(iterationID);
+	double dataSizeDouble = static_cast<double>(dataCount);
+	double iterationPercentage = iterationDouble / dataSizeDouble;
+
+	float learningRate = NeuralNetworkUtility::Lerp(0.1f , 0.01f, iterationPercentage);
+
+	UpdateNetwork(learningRate);
+
+	int predictedNum = 0;
+	float predictionChance = 0.f;
+
+	std::vector<double> propabilityChances = buffer[buffer.size() - 1]->valuesActivation;
+
+	NeuralNetworkUtility::GetHighestPropabilityPrediction(buffer[buffer.size() - 1] , predictedNum , predictionChance);
+
+	//std::cout << "Num Prediction is "  <<predictedNum << " | Label is "<<  std::endl;
+	//std::cout << "===============================================" << std::endl;
+
+	int label = data->GetLabel();
+
+	bool correctPrediction = predictedNum == label;
+	if (correctPrediction)
+	{
+		correctlyPredicted++;
+	}
+	float currentPredictionPercentage = static_cast<float>(correctlyPredicted) / static_cast<float>(iterationID+1);
+	std::cout << "Correct Prediction Percentage: " << currentPredictionPercentage << '%' << std::endl;
+
+	for (size_t i = 0; i < propabilityChances.size(); i++)
+	{
+		std::cout << "For Label: " << i << "| Chance: " << propabilityChances[i] << std::endl;
+	}
+
 }
 
 std::vector<std::shared_ptr<LayerBuffer>> NeuralNetwork::GetLayerBufferVector()

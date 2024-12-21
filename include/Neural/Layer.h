@@ -5,6 +5,7 @@
 #include <chrono>
 #include <memory>
 #include <stdexcept>
+#include <mutex>
 #include <Neural/LayerBuffer.h>
 #include "IActivation.h"
 #include "ICost.h"
@@ -33,6 +34,8 @@ private:
 
 	std::shared_ptr<IActivation> activation;
 	std::shared_ptr<ICost> cost;
+
+	std::mutex applyGradientMutex;
 
 	// Function to initialize weights with random values following a normal distribution
 	void InitializeRandomWeights(std::mt19937& rng);
