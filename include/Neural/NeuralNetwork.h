@@ -5,6 +5,8 @@
 #include <thread>
 #include <iostream>
 #include <ostream>
+
+#include "NeuralNetworkIterationOutput.h"
 #include "Config/NeuralNetworkConfig.h"
 #include "Neural/Layer.h"
 #include "Neural/LayerBuffer.h"
@@ -48,7 +50,7 @@ public:
 	void RunBatchesParallel(std::vector<std::shared_ptr<NeuralDataBatch>> batches , std::shared_ptr<NeuralNetworkResult> networkResult);
 	void RunBatchIteration(std::shared_ptr<NeuralDataBatch> batchData , std::shared_ptr<NeuralNetworkResult> networkResult);
 
-	void RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, size_t iterationID , std::shared_ptr<NeuralNetworkResult> result);
+	NeuralNetworkIterationOutput RunSingleTrainingIterationThroughNetwork(std::shared_ptr<NeuralDataObject> data, size_t iterationID , std::shared_ptr<NeuralNetworkResult> result);
 
 	void IterateThroughAllDataObjects(std::vector<std::shared_ptr<NeuralDataObject>> datas , std::shared_ptr<NeuralNetworkResult> result);
 

@@ -39,3 +39,10 @@ public:
 	std::shared_ptr<NeuralNetworkResult> neuralNetworkResult;
 	NeuralNetworkIterationMessage(std::shared_ptr<NeuralNetworkResult> neuralNetworkResult) : neuralNetworkResult(neuralNetworkResult){};
 };
+
+struct NeuralNetworkBatchMessage : Message
+{
+	public:
+	std::shared_ptr<NeuralNetworkResult> neuralNetworkResult;
+	NeuralNetworkBatchMessage(std::shared_ptr<NeuralNetworkResult> neuralNetworkResult) : neuralNetworkResult(neuralNetworkResult){};
+};

@@ -12,6 +12,7 @@ add_library(NeuralNetwork_Headers INTERFACE
         Neural/NeuralNetworkController.h
         Neural/Cost.h
         Data/NeuralDataBatch.h
+        Neural/NeuralNetworkIterationOutput.h
 )
 
 # Specify include directories for this interface library

@@ -39,14 +39,24 @@ private:
 
 	// Function to initialize weights with random values following a normal distribution
 	void InitializeRandomWeights(std::mt19937& rng);
+	void InitializeRandomBiases(std::mt19937& rng);
+
+	std::vector<double> InitializeBiases(int nOut, double minValue = 0.0, double maxValue = 0.01);
+	std::vector<double> InitializeWeightsXavier(int nIn, int nOut, double scale = 1.0);
+	std::vector<double> InitializeWeightsHe(int nIn, int nOut, double scale = 1.0);
+
 	double RandomInNormalDistribution(std::mt19937& rng, double mean, double standardDeviation);
 
 public:
 	Layer(unsigned int nodesIn, unsigned int nodesOut , LayerType layerType)
 		: nodesIn(nodesIn) , nodesOut(nodesOut), values(nodesOut) , weightsBackwards(nodesIn * nodesOut) , biases(nodesOut) , weightsGradient(nodesIn * nodesOut) , biasesGradient(nodesIn) , weightVelocity(nodesIn*nodesOut) , biasVelocity(nodesIn) , layerType(layerType)
 	{
-		std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
-		InitializeRandomWeights(rng);
+		//std::mt19937 rngWeights(std::chrono::steady_clock::now().time_since_epoch().count());
+		//std::mt19937 rngBiases(std::chrono::steady_clock::now().time_since_epoch().count());
+		//InitializeRandomWeights(rngWeights);
+		//InitializeRandomBiases(rngBiases);
+		biases = InitializeBiases(nodesOut , 0 , 0.01);
+		weightsBackwards = InitializeWeightsXavier(nodesIn , nodesOut , 0.05f);
 	}
 
 	void SetActivationAndCost(std::shared_ptr<IActivation> activation , std::shared_ptr<ICost> cost);

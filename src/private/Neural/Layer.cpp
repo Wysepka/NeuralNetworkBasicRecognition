@@ -4,8 +4,55 @@ void Layer::InitializeRandomWeights(std::mt19937& rng)
 {
 	for (size_t i = 0; i < weightsBackwards.size(); i++)
 	{
-		weightsBackwards[i] = RandomInNormalDistribution(rng, 0.0, 1.0) / std::sqrt(values.size());
+		weightsBackwards[i] = RandomInNormalDistribution(rng, 0.0, 0.05) / std::sqrt(values.size());
 	}
+}
+
+void Layer::InitializeRandomBiases(std::mt19937 &rng)
+{
+	for (size_t i = 0; i < biases.size(); i++)
+	{
+		biases[i] = RandomInNormalDistribution(rng, 0.0, 0.5) / std::sqrt(values.size());
+	}
+}
+
+std::vector<double> Layer::InitializeBiases(int nOut, double minValue, double maxValue) {
+	std::vector<double> biases(nOut);
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dist(minValue, maxValue);
+
+	for (int i = 0; i < nOut; ++i) {
+		biases[i] = dist(gen);
+	}
+	return biases;
+}
+
+std::vector<double> Layer::InitializeWeightsXavier(int nIn, int nOut, double scale) {
+	std::vector<double> weights(nIn * nOut);
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	double limit = scale * sqrt(6.0 / (nIn + nOut));
+	std::uniform_real_distribution<> dist(-limit, limit);
+
+	for (int i = 0; i < nIn * nOut; ++i) {
+		weights[i] = dist(gen);
+	}
+	return weights;
+}
+
+// Function to generate random weights using He initialization with a control factor
+std::vector<double> Layer::InitializeWeightsHe(int nIn, int nOut, double scale) {
+	std::vector<double> weights(nIn * nOut);
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	double stddev = scale * sqrt(2.0 / nIn);
+	std::normal_distribution<> dist(0, stddev);
+
+	for (int i = 0; i < nIn * nOut; ++i) {
+		weights[i] = dist(gen);
+	}
+	return weights;
 }
 
 double Layer::RandomInNormalDistribution(std::mt19937& rng, double mean, double standardDeviation)
@@ -120,7 +167,8 @@ void Layer::ApplyGradients(double learnRate, double decayFactor, double momentum
 		{
 			double velocity = weightVelocity[i] * momentum - weightsGradient[i] * learnRate;
 			weightVelocity[i] = velocity;
-			weightsBackwards[i] = weightsBackwards[i] + weightVelocity[i] * decayValue;
+			double newWeightBackward = weightsBackwards[i] + weightVelocity[i] * decayValue;
+			weightsBackwards[i] = newWeightBackward;
 			weightsGradient[i] = 0;
 		}
 

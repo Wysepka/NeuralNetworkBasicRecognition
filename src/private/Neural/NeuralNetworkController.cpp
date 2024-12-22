@@ -17,7 +17,7 @@ void NeuralNetworkController::Initialize(std::shared_ptr<NeuralDataFile> neuralD
     NeuralNetworkLogConfig logConfig(false, true, true);
 
     NeuralNetworkConfig neuralConfig(neuralDataFile->GetNeuralDataObjects()[0]->GetFlatObjectPixelsArray_Normalized().size() , hiddenConfig , 10
-        , sigmoidActivation , crossEntropyCost , 300 , 30 , true, 8 , logConfig);
+        , sigmoidActivation , crossEntropyCost , 300 , 30 , false, 8 , logConfig);
 
     network->SetConfig(neuralConfig);
 }

@@ -3,8 +3,8 @@
 //
 #include "Config/NeuralNetworkConfig.h"
 
-float NeuralNetworkConfig::LearningRateInitial = 0.01f;
-float NeuralNetworkConfig::DecayRate = 0.001f;
+float NeuralNetworkConfig::LearningRateInitial = 0.1f;
+float NeuralNetworkConfig::DecayRate = 0.01f;
 
 uint16_t NeuralNetworkConfig::GetInputLayer() const { return inputLayer; }
 std::vector<NeuralNetworkHiddenConfig> NeuralNetworkConfig::GetHiddenLayer() { return hiddenLayer; }

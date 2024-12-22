@@ -17,8 +17,6 @@ long long NeuralDataBatch::GetIterationIDStart()
     return iterationIDStart;
 }
 
-NeuralDataBatch::NeuralDataBatch(std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects , long long iterationIDStart)
+NeuralDataBatch::NeuralDataBatch(std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects , long long iterationIDStart) : neuralDataObjects(neuralDataObjects), iterationIDStart(iterationIDStart)
 {
-    this->neuralDataObjects = neuralDataObjects;
-    this->iterationIDStart = iterationIDStart;
 }

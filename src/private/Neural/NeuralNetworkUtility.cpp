@@ -3,7 +3,6 @@
 //
 
 #include "Neural/NeuralNetworkUtility.h"
-
 #include <Config/NeuralNetworkConfig.h>
 
 std::vector<double> NeuralNetworkUtility::GetPredictedOutput(std::shared_ptr<NeuralDataObject> dataObject)
@@ -26,7 +25,7 @@ std::vector<double> NeuralNetworkUtility::GetPredictedOutput(std::shared_ptr<Neu
 void NeuralNetworkUtility::GetHighestPropabilityPrediction(std::shared_ptr<LayerBuffer> outputLayerBuffer,
     int &predictedNum, float &chance) {
 
-    float highestChance = 0;
+    double highestChance = -std::numeric_limits<double>::infinity();
     int highestChanceIndex = 0;
 
     for (size_t i = 0; i < outputLayerBuffer->valuesActivation.size(); i++)
@@ -75,19 +74,33 @@ double NeuralNetworkUtility::Lerp(double a, double b, double t) {
     return a + t * (b - a);
 }
 
-float NeuralNetworkUtility::GetLearningRate(bool parallel, long long iterationID,long long batchID, long long epochID , long long dataTotalSize)
+double NeuralNetworkUtility::GetLearningRate(bool parallel, long long iterationID,long long batchID, long long epochID , long long dataTotalSize)
 {
     if(parallel)
     {
         // Example: Decay the learning rate exponentially
-        double epochFactor = std::exp(-NeuralNetworkConfig::DecayRate * epochID);
+        double epochFactor = std::exp(NeuralNetworkConfig::DecayRate * epochID);
         double batchFactor = 1.0 / (1.0 + NeuralNetworkConfig::DecayRate * batchID);
         double iterationFactor = 1.0 / (1.0 + NeuralNetworkConfig::DecayRate * iterationID);
 
-        return NeuralNetworkConfig::LearningRateInitial * epochFactor * batchFactor * iterationFactor;
+        double finalResult = NeuralNetworkConfig::LearningRateInitial * epochFactor * batchFactor * iterationFactor;
+
+        return finalResult;
     }
     else
     {
         return iterationID / dataTotalSize;
     }
+}
+
+double NeuralNetworkUtility::CalculateLearningRate_Basic(int currentEpochLoopIndex, int maxEpochCount, double initialLearningRate, double finalLearningRate) {
+    if (currentEpochLoopIndex < 0 || currentEpochLoopIndex > maxEpochCount) {
+        throw std::invalid_argument("currentEpochLoopIndex must be between 0 and maxEpochCount inclusive.");
+    }
+
+    // Linear decay formula
+    double learningRate = initialLearningRate -
+        ((initialLearningRate - finalLearningRate) * (static_cast<double>(currentEpochLoopIndex) / maxEpochCount));
+
+    return learningRate;
 }

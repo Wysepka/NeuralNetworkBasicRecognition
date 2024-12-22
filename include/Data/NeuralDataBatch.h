@@ -8,7 +8,7 @@
 #include "NeuralDataFile.h"
 #include "Neural/NeuralNetworkResult.h"
 
-struct NeuralDataBatch
+class NeuralDataBatch
 {
 private:
     std::vector<std::shared_ptr<NeuralDataObject>> neuralDataObjects;
